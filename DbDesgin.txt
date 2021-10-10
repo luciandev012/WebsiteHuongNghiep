@@ -1,0 +1,20 @@
+HollandMutipleChoice: 
+ - Id
+ - Question
+ - HLTableId
+HollandTable:
+ - HLTableId
+ - Name
+
+HollandTracker:
+ - Id
+ - Username
+ - Step
+ - Time
+ - TimeStamp
+HollandScore:
+ - Id
+ - Table
+ - Score
+ - TimeStamp
+HollandResult:
