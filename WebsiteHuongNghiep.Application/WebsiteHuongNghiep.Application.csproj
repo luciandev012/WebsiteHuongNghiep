@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Services\ManageHLTable.cs~RF1f334c3a.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WebsiteHuongNghiep.Data\WebsiteHuongNghiep.Data.csproj" />
   </ItemGroup>
 
