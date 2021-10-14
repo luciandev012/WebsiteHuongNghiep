@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteHuongNghiep", "Websi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteHuongNghiep.Data", "WebsiteHuongNghiep.Data\WebsiteHuongNghiep.Data.csproj", "{1A3B6A16-DC83-45C8-B6D2-FBB1DFAC0171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteHuongNghiep.Application", "WebsiteHuongNghiep.Application\WebsiteHuongNghiep.Application.csproj", "{E0B1C2F2-1447-44BE-AEB2-A433CDA6AF09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteHuongNghiep.Application", "WebsiteHuongNghiep.Application\WebsiteHuongNghiep.Application.csproj", "{E0B1C2F2-1447-44BE-AEB2-A433CDA6AF09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
