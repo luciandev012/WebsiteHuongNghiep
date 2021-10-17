@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +33,22 @@ namespace WebsiteHuongNghiep.Application.Services
             return await _context.SaveChangesAsync();
         }
 
+        public async Task<List<HollandTable>> GetAll()
+        {
+            var hlTables = await _context.HollandTables.ToListAsync();
+            return hlTables;
+        }
+
         public async Task<int> Update(HollandTable request)
         {
             var hlTable = await _context.HollandTables.FindAsync(request.HLTableId);
             hlTable.Name = request.Name;
             return await _context.SaveChangesAsync();
         }
+        public async Task<HollandTable> GetById(int id)
+        {
+            return await _context.HollandTables.FindAsync(id);
+        }
+
     }
 }

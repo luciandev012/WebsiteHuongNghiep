@@ -12,5 +12,7 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<int> Create(HollandTable request);
         Task<int> Update(HollandTable request);
         Task<int> Delete(int id);
+        Task<List<HollandTable>> GetAll();
+        Task<HollandTable> GetById(int id);
     }
 }
