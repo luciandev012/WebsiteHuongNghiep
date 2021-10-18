@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Landing Page</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+          rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!--Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link href="~/css/styles.me.css" rel="stylesheet" />
+    <link href="~/css/styles.bundle.css" rel="stylesheet" />
+    <link href="~/css/flags.css" rel="stylesheet" />
+    <link href="~/css/plugins.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Website hướng nghiệp</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">
+                        Website giúp bạn định hướng tốt hơn về nghề nghiệp của bản
+                        thân
+                    </h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5">
+                        Chúng tôi đem lại cho bạn những công cụ, những bộ câu hỏi trắc nghiệm
+                        tốt nhất giúp bạn có nhiều lựa chọn ngành nghề phù hợp với mình
+                    </p>
+                    <a class="btn btn-primary btn-xl" href="#about">Bắt đầu nào!</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Sign in-->
+    <section class="page-section bg-primary bg-login" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <!--Sign in-->
+                    <h3 id="title-header" class="text-white mt-0">Đăng nhập</h3>
+                    <div class="login-signin" id="sign-in">
+                        <form class="form" id="kt_login_signin_form">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-4 text-white">
+                                        <div style="width: 100%;position: relative;">
+
+                                            <input type="tel" id="number" class="form-control h-auto placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5 phone-code" />
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                               type="text" placeholder="Số điện thoại đăng nhập" name="username" value=""
+                                               autocomplete="off" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                       type="password" placeholder="Mật khẩu" value="" name="password" required="">
+                            </div>
+                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
+                                <div class="checkbox-inline">
+                                    <label class="checkbox checkbox-outline checkbox-white text-white m-0">
+                                        <input type="checkbox" name="remember">
+                                        <span></span>
+                                        Ghi nhớ đăng nhập
+                                    </label>
+                                </div>
+                                <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">
+                                    Quên mật
+                                    khẩu?
+                                </a>
+                            </div>
+                            <div class="form-group text-center mt-10">
+                                <button id="btn_login" type="button"
+                                        class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">
+                                    Đăng
+                                    nhập
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--Sign up-->
+                    <div class="login-signup" id="sign-up">
+                        <form class="form" id="kt_login_signin_form" action="login" method="post">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-4 text-white">
+                                        <div style="width: 100%;position: relative;">
+
+                                            <input type="tel" id="number2" class="form-control h-auto placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5 phone-code" />
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                               type="text" placeholder="Số điện thoại đăng ký" name="username" value=""
+                                               autocomplete="off" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                       type="text" placeholder="Họ và tên" value="" name="fullname" required="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                       type="password" placeholder="Mật khẩu" value="" name="password" required="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                       type="password" placeholder="Nhập lại mật khẩu" value="" name="password" required="">
+                            </div>
+                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
+                                <div class="checkbox-inline">
+                                    <label class="checkbox checkbox-outline checkbox-white text-white m-0">
+                                        <input type="checkbox" name="agree">
+                                        <span></span>
+                                        Tôi đồng ý điều khoản
+                                    </label>
+                                </div>
+                                <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">
+                                    Quên mật
+                                    khẩu?
+                                </a>
+                            </div>
+                            <div class="form-group text-center mt-10">
+                                <button id="kt_login_signin_submit" type="submit"
+                                        class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">
+                                    Đăng
+                                    ký
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mt-10 suggest">
+                        <span id="reminder" class="opacity-90 mr-4" style="color:#f7d51a;font-size:15px;">
+                            Bạn chưa có tài khoản?
+                        </span>
+                        <a id="login_signup" class="text-white"
+                           style="color:#f7d51a;font-size:15px; font-weight: bold;">Đăng ký ngay</a>
+                    </div>
+
+                    <!-- <div class="mt-10">
+                        <span id="reminder" class="opacity-90 mr-4" style="color:#f7d51a;font-size:15px;">
+                            Bạn đã có tài khoản?
+                        </span>
+                        <a href="javascript:;" id="kt_login_signup" class="text-white"
+                            style="color:#f7d51a;font-size:15px; font-weight: bold;">Đăng nhập ngay</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/site.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</body>
+
+</html>

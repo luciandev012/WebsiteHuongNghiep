@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services;
+using WebsiteHuongNghiep.Application.Services.System;
 using WebsiteHuongNghiep.Data.EF;
+using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep
 {
@@ -29,10 +32,19 @@ namespace WebsiteHuongNghiep
             services.AddDbContext<VocationalGuidanceDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("vocationalGuidanceDb")));
 
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<VocationalGuidanceDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IManageHLTableServices, ManageHLTable>();
             services.AddTransient<IManageHLMultipleChoiceServices, ManageHLMultipleChoices>();
+            services.AddTransient<UserManager<User>, UserManager<User>>();
+            services.AddTransient<SignInManager<User>, SignInManager<User>>();
+            services.AddTransient<IUserServices, UserServices>();
+            //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
