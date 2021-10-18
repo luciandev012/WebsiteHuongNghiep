@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Application.ViewModels.MultipleChoicesVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="mg-20">Danh sách câu hỏi</h3>
+
+<p>
+    <a asp-action="Create" class="btn btn-success mg-20">Thêm mới</a>
+</p>
+<table class="table mg-20">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Table)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", "HollandMP", new { id=item.Id }, new { @class="btn btn-primary" }) 
+                @Html.ActionLink("Xóa", "Delete", "HollandMP", new { id=item.Id }, new { @class = "btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

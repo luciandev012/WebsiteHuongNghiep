@@ -32,6 +32,7 @@ namespace WebsiteHuongNghiep
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IManageHLTableServices, ManageHLTable>();
+            services.AddTransient<IManageHLMultipleChoiceServices, ManageHLMultipleChoices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
