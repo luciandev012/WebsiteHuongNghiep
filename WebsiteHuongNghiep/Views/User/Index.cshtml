@@ -83,7 +83,8 @@
                     <!--Sign in-->
                     <h3 id="title-header" class="text-white mt-0">Đăng nhập</h3>
                     <div class="login-signin" id="sign-in">
-                        <form class="form" id="kt_login_signin_form">
+                        <form class="form" id="kt_login_signin_form" asp-action="Index" asp-controller="User" method="post">
+                            @Html.ValidationMessage("CustomError")
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-4 text-white">
@@ -94,19 +95,19 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                               type="text" placeholder="Số điện thoại đăng nhập" name="username" value=""
+                                               type="text" placeholder="Số điện thoại đăng nhập" name="PhoneNumber" value=""
                                                autocomplete="off" required="">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="password" placeholder="Mật khẩu" value="" name="password" required="">
+                                       type="password" placeholder="Mật khẩu" value="" name="Password" required="">
                             </div>
                             <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
                                 <div class="checkbox-inline">
                                     <label class="checkbox checkbox-outline checkbox-white text-white m-0">
-                                        <input type="checkbox" name="remember">
+                                        <input type="checkbox" name="RememberMe">
                                         <span></span>
                                         Ghi nhớ đăng nhập
                                     </label>
@@ -117,7 +118,7 @@
                                 </a>
                             </div>
                             <div class="form-group text-center mt-10">
-                                <button id="btn_login" type="button"
+                                <button id="btn_login" type="submit"
                                         class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">
                                     Đăng
                                     nhập

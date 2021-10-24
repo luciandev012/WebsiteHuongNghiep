@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Request;
+using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Application.Services.System
@@ -13,16 +15,19 @@ namespace WebsiteHuongNghiep.Application.Services.System
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly VocationalGuidanceDbContext _context;
         //private readonly RoleManager<Role> _roleManager;
-        public UserServices(UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserServices(UserManager<User> userManager, SignInManager<User> signInManager, VocationalGuidanceDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             //_roleManager = roleManager;
+            _context = context;
         }
         public async Task<Response> Authenticate(LoginRequest request)
         {
-            var user = await _userManager.FindByNameAsync(request.PhoneNumber);
+            //var user = await _userManager.FindByNameAsync(request.PhoneNumber);
+            var user = await _context.Users.Where(x => x.UserName == request.PhoneNumber).FirstOrDefaultAsync();
             if(user == null)
             {
                 return new Response()

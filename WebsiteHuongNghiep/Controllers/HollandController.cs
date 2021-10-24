@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebsiteHuongNghiep.Controllers
 {
-    public class HomeController : Controller
+    public class HollandController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-
     }
 }
