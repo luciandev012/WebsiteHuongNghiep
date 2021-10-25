@@ -19610,7 +19610,9 @@ a.text-white:hover, a.text-white:focus {
 
 .bg-info-o-100 {
   background-color: rgba(137, 80, 252, 0.4) !important; }
-
+.bg-info-o-400 {
+    background-color: rgba(137, 80, 252, 1.26) !important;
+}
 .bg-hover-info-o-20 {
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;

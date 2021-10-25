@@ -11644,3 +11644,47 @@ header.masthead h1, header.masthead .h1 {
   background-size: 50vw auto;
   background-color: #bafab4;
 }
+.hidden {
+    display: none;
+}
+
+.introduce h2 {
+    text-align: center;
+    margin: 30px 0px;
+    font-weight: bolder;
+}
+
+.introduce p {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 20px 0px;
+}
+
+.introduce ol {
+    list-style-type: decimal!important;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 40px;
+}
+.introduce a {
+    color: white;
+    margin: 25px 0;
+}
+.introduce{
+    min-height: 75vh;
+    text-align: center;
+    max-height: fit-content();
+}
+.table-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 20px 0px;
+}
+.table-question{
+    width: 70%!important;
+    margin-left: 15%;
+}
+.table-question input{
+    width: 40px;
+    text-align: center
+}

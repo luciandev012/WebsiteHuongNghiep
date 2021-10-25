@@ -15,5 +15,6 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<int> Delete(int id);
         Task<List<MultipleChoicesVM>> GetAll();
         Task<MultipleChoicesVM> GetById(int id);
+        Task<List<MultipleChoicesVM>> GetByTable(int tableId);
     }
 }

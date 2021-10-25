@@ -69,5 +69,20 @@ namespace WebsiteHuongNghiep.Application.Services
             hlMultipleChoice.HLTableId = request.HLTableId;
             return await _context.SaveChangesAsync();
         }
+        public async Task<List<MultipleChoicesVM>> GetByTable(int tableId)
+        {
+            var query = from m in _context.HollandMultipleChoices
+                        join t in _context.HollandTables on m.HLTableId equals t.HLTableId
+                        where m.HLTableId == tableId
+                        select new { m, t };
+            var data = await query.Select(x => new MultipleChoicesVM()
+            {
+                Id = x.m.Id,
+                Question = x.m.Question,
+                Table = x.t.Name
+            }).ToListAsync();
+
+            return data;
+        }
     }
 }
