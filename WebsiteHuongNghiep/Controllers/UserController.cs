@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,8 @@ namespace WebsiteHuongNghiep.Controllers
                 //return View("Index#about");
                 //return RedirectToPage("./Index#about"); 
             }
-
+            var user = result.ResponseObj;
+            HttpContext.Session.SetString("UserName", user.FirstName);
             return RedirectToAction("Index", "Home");
 
 

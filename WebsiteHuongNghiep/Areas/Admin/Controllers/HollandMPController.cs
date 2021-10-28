@@ -20,9 +20,20 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             _manageHLMultipleChoice = manageHLMultipleChoice;
             _manageHLTable = manageHLTable;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? tableId)
         {
             var hlMultiples = await _manageHLMultipleChoice.GetAll();
+            if (tableId.HasValue)
+            {
+                hlMultiples = await _manageHLMultipleChoice.GetByTable(tableId.Value);
+            }
+            var tables = await _manageHLTable.GetAll();
+            ViewBag.Tables = tables.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.HLTableId.ToString(),
+                Selected = tableId.HasValue && tableId == x.HLTableId
+            });
             return View(hlMultiples);
         }
         [HttpGet]

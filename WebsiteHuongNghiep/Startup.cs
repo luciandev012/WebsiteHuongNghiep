@@ -35,7 +35,9 @@ namespace WebsiteHuongNghiep
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<VocationalGuidanceDbContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddSession(option => {
+                option.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IManageHLTableServices, ManageHLTable>();
@@ -67,7 +69,7 @@ namespace WebsiteHuongNghiep
 
             app.UseAuthentication();
             app.UseAuthorization();
-           
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 

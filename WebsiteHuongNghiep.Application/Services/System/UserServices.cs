@@ -24,36 +24,24 @@ namespace WebsiteHuongNghiep.Application.Services.System
             //_roleManager = roleManager;
             _context = context;
         }
-        public async Task<Response> Authenticate(LoginRequest request)
+        public async Task<Response<User>> Authenticate(LoginRequest request)
         {
             //var user = await _userManager.FindByNameAsync(request.PhoneNumber);
             var user = await _context.Users.Where(x => x.UserName == request.PhoneNumber).FirstOrDefaultAsync();
             if(user == null)
             {
-                return new Response()
-                {
-                    Success = false,
-                    Message = "User is not exist!"
-                };
+                return new Response<User>(false, "User is not exsist", null);
             }
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
-                return new Response()
-                {
-                    Success = false,
-                    Message = "Password is not correct!"
-                };
+                return new Response<User>(success: false, message: "Password is not correct!", null);
             }
-            return new Response()
-            {
-                Success = true,
-                Message = "Login successfully!"
-            };
+            return new Response<User>(true, "Login successfully!", user);
 
         }
 
-        public async Task<Response> Register(RegisterRequest request)
+        public async Task<Response<User>> Register(RegisterRequest request)
         {
             var user = new User()
             {
@@ -66,17 +54,9 @@ namespace WebsiteHuongNghiep.Application.Services.System
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
-                return new Response()
-                {
-                    Success = true,
-                    Message = "Đăng ký thành công!"
-                };
+                return new Response<User>(true, "Đăng ký thành công!", null);
             }
-            return new Response()
-            {
-                Success = false,
-                Message = "Đăng ký không thành công!"
-            };
+            return new Response<User>(false, "Đăng ký không thành công!", null);
         }
     }
 }
