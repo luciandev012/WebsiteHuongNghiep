@@ -33,11 +33,12 @@ namespace WebsiteHuongNghiep.Application.Services.System
                 return new Response<User>(false, "User is not exsist", null);
             }
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
+            var role = await _signInManager.UserManager.GetRolesAsync(user);
             if (!result.Succeeded)
             {
                 return new Response<User>(success: false, message: "Password is not correct!", null);
             }
-            return new Response<User>(true, "Login successfully!", user);
+            return new Response<User>(true, role[0], user);
 
         }
 

@@ -39,6 +39,11 @@ namespace WebsiteHuongNghiep.Controllers
                 //return RedirectToPage("./Index#about"); 
             }
             var user = result.ResponseObj;
+            if(result.Message == "admin")
+            {
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
+            
             HttpContext.Session.SetString("UserName", user.FirstName);
             return RedirectToAction("Index", "Home");
 
