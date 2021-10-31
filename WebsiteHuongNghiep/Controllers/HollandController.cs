@@ -22,17 +22,27 @@ namespace WebsiteHuongNghiep.Controllers
                
             return View();
         }
+        [HttpGet]
         public async Task<IActionResult> Make(int id)
         {
-            
             if (id == 0) id = 1;
             var listQ = await _manageHLMultipleChoiceServices.GetByTable(id);
-            foreach(var item in listQ)
+            int index = 1;
+            foreach (var item in listQ)
             {
-                item.Id = item.Id - 9 * (id - 1);
+                item.Id = index;
+                index++;
             }
             ViewBag.TableName = listQ[0].Table;
+            ViewBag.Id = id;
             return View(listQ);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Make(int id, string[] data)
+        {
+                        
+            
+            return RedirectToAction("Make", new { id = id + 1 });
         }
     }
 }

@@ -45,6 +45,7 @@ namespace WebsiteHuongNghiep.Controllers
             }
             
             HttpContext.Session.SetString("UserName", user.FirstName);
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
             return RedirectToAction("Index", "Home");
 
 

@@ -12,11 +12,11 @@ namespace WebsiteHuongNghiep.Controllers
     {
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            var session = context.HttpContext.Session.GetString("UserName");
-            if(session == null)
-            {
-                context.Result = new RedirectToActionResult("Index", "User", null);
-            }
+            //var session = context.HttpContext.Session.GetString("UserName");
+            //if(session == null)
+            //{
+            //    context.Result = new RedirectToActionResult("Index", "User", null);
+            //}
             base.OnActionExecuted(context);
         }
     }
