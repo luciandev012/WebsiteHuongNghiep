@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services;
+using WebsiteHuongNghiep.Controllers;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HollandController : Controller
+    public class HollandController : BaseController
     {
         private readonly IManageHLTableServices _manageHLTable;
         public HollandController(IManageHLTableServices manageHLTable)

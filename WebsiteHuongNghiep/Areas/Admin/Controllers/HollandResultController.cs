@@ -7,10 +7,8 @@ using WebsiteHuongNghiep.Controllers;
 
 namespace WebsiteHuongNghiep.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class HomeController : BaseController
+    public class HollandResultController : BaseController
     {
-        
         public IActionResult Index()
         {
             return View();

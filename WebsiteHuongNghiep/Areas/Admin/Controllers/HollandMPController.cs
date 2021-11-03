@@ -6,12 +6,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services;
 using WebsiteHuongNghiep.Application.ViewModels;
+using WebsiteHuongNghiep.Controllers;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HollandMPController : Controller
+    public class HollandMPController : BaseController
     {
         private readonly IManageHLMultipleChoiceServices _manageHLMultipleChoice;
         private readonly IManageHLTableServices _manageHLTable;

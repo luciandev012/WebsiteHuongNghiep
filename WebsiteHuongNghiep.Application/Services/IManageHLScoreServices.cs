@@ -12,5 +12,6 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<int> Create(HollandScore request);
         Task<int> Update(HollandScore request);
         Task<int> Delete(int id);
+        Task<List<HollandScore>> GetHollandScoresByTimeStamp(string timeStamp);
     }
 }

@@ -12,5 +12,9 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<int> Create(HollandTracker request);
         Task<int> Update(HollandTracker request);
         Task<int> Delete(int id);
+        Task<bool> IsUserExist(Guid userId);
+        Task<HollandTracker> GetTrackerByUserId(Guid userId);
+        Task<int> IncreaseStep(HollandTracker tracker);
+        Task<int> ReverseTimes(HollandTracker tracker);
     }
 }

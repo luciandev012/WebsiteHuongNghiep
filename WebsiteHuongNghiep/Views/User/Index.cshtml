@@ -128,7 +128,7 @@
                     </div>
                     <!--Sign up-->
                     <div class="login-signup" id="sign-up">
-                        <form class="form" id="kt_login_signin_form" action="login" method="post">
+                        <form class="form" id="kt_login_signin_form" asp-action="Register" asp-controller="User" method="post">
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-4 text-white">
@@ -139,22 +139,26 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                               type="text" placeholder="Số điện thoại đăng ký" name="username" value=""
+                                               type="text" placeholder="Số điện thoại đăng ký" name="PhoneNumber" value=""
                                                autocomplete="off" required="">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="text" placeholder="Họ và tên" value="" name="fullname" required="">
+                                       type="text" placeholder="Họ" value="" name="LastName" required="">
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="password" placeholder="Mật khẩu" value="" name="password" required="">
+                                       type="text" placeholder="Tên" value="" name="FirstName" required="">
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="password" placeholder="Nhập lại mật khẩu" value="" name="password" required="">
+                                       type="password" placeholder="Mật khẩu" value="" name="Password" required="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
+                                       type="password" placeholder="Nhập lại mật khẩu" value="" name="ConfirmPassword" required="">
                             </div>
                             <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
                                 <div class="checkbox-inline">

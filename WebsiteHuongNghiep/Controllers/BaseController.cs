@@ -10,14 +10,23 @@ namespace WebsiteHuongNghiep.Controllers
 {
     public class BaseController : Controller
     {
-        public override void OnActionExecuted(ActionExecutedContext context)
+        //public override void OnActionExecuted(ActionExecutedContext context)
+        //{
+        //    var session = context.HttpContext.Session.GetString("UserName");
+        //    if (session == null)
+        //    {
+        //        context.Result = new RedirectToActionResult("Index", "User", null);
+        //    }
+        //    base.OnActionExecuted(context);
+        //}
+        public override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            //var session = context.HttpContext.Session.GetString("UserName");
-            //if(session == null)
-            //{
-            //    context.Result = new RedirectToActionResult("Index", "User", null);
-            //}
-            base.OnActionExecuted(context);
+            var session = context.HttpContext.Session.GetString("UserName");
+            if (session == null)
+            {
+                context.Result = new RedirectToActionResult("Index", "User", null);
+            }
+            return base.OnActionExecutionAsync(context, next);
         }
     }
 }

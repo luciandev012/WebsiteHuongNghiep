@@ -50,6 +50,21 @@ namespace WebsiteHuongNghiep.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterRequest request)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(ModelState);
+            }
+            var result = await _userServices.Register(request);
+            if(result.Success)
+            {
+
+                return new RedirectResult(Url.Action("Index") + HttpUtility.UrlDecode("#about"));
+            }
+            return RedirectToAction("Index");
+        }
 
 
 

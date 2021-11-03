@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,12 @@ namespace WebsiteHuongNghiep.Application.Services
             hlScore.Table = request.Table;
             hlScore.TimeStamp = request.TimeStamp;
             return await _context.SaveChangesAsync();
+        }
+        public async Task<List<HollandScore>> GetHollandScoresByTimeStamp(string timeStamp)
+        {
+            var hlScores = await _context.HollandScores.Where(x => x.TimeStamp == timeStamp).ToListAsync();
+            //var hl = from s in _context.HollandScores 
+            return hlScores;
         }
     }
 }

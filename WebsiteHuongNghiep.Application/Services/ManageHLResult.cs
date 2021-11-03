@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,11 @@ namespace WebsiteHuongNghiep.Application.Services
             hlResult.Result = request.Result;
             hlResult.Table = request.Table;
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task<HollandResult> GetHollandResultByTable(int table)
+        {
+            return await _context.HollandResults.Where(x => x.Table == table).FirstOrDefaultAsync();
         }
     }
 }

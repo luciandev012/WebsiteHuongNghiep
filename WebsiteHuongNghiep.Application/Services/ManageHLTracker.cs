@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,45 @@ namespace WebsiteHuongNghiep.Application.Services
             hlTracker.Step = request.Step;
             hlTracker.Times = request.Times;
             hlTracker.TimeStamp = request.TimeStamp;
+            return await _context.SaveChangesAsync();
+        }
+        public async Task<bool> IsUserExist(Guid userId)
+        {
+            var tracker = await _context.HollandTrackers.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            return tracker != null;
+        }
+        public async Task<HollandTracker> GetTrackerByUserId(Guid userId)
+        {
+            return await _context.HollandTrackers.Where(x => x.UserId == userId && x.Times == 0).FirstOrDefaultAsync();
+        }
+        public async Task<int> IncreaseStep(HollandTracker tracker)
+        {
+            var hlTracker = await _context.HollandTrackers.Where(x => x.TimeStamp == tracker.TimeStamp && x.UserId == tracker.UserId)
+                                    .FirstOrDefaultAsync();
+            if(hlTracker == null)
+            {
+                return -1;
+            }
+            hlTracker.Step++;
+            return await _context.SaveChangesAsync();
+        }
+        public async Task<int> ReverseTimes(HollandTracker tracker)
+        {
+            var hlTracker = await _context.HollandTrackers.Where(x => x.TimeStamp == tracker.TimeStamp && x.UserId == tracker.UserId)
+                                    .FirstOrDefaultAsync();
+            if (hlTracker == null)
+            {
+                return -1;
+            }
+            
+            if(hlTracker.Times == 0)
+            {
+                hlTracker.Times = 1;
+            }
+            else
+            {
+                hlTracker.Times = 0;
+            }
             return await _context.SaveChangesAsync();
         }
     }

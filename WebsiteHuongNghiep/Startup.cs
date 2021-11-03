@@ -42,6 +42,9 @@ namespace WebsiteHuongNghiep
             services.AddRazorPages();
             services.AddTransient<IManageHLTableServices, ManageHLTable>();
             services.AddTransient<IManageHLMultipleChoiceServices, ManageHLMultipleChoices>();
+            services.AddTransient<IManageHLTrackerServices, ManageHLTracker>();
+            services.AddTransient<IManageHLScoreServices, ManageHLScore>();
+            services.AddTransient<IManageHLResultServices, ManageHLResult>();
             services.AddTransient<UserManager<User>, UserManager<User>>();
             services.AddTransient<SignInManager<User>, SignInManager<User>>();
             services.AddTransient<IUserServices, UserServices>();

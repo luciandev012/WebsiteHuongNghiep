@@ -57,7 +57,7 @@ namespace WebsiteHuongNghiep.Application.Services.System
             {
                 return new Response<User>(true, "Đăng ký thành công!", null);
             }
-            return new Response<User>(false, "Đăng ký không thành công!", null);
+            return new Response<User>(false, result.Errors.First().Description, null);
         }
     }
 }
