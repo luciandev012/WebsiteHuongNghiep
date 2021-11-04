@@ -102,7 +102,7 @@ namespace WebsiteHuongNghiep.Controllers
                 await _manageHLTrackerServices.IncreaseStep(tracker);
                 return RedirectToAction("Make");
             }
-            await _manageHLTrackerServices.ReverseTimes(tracker);
+            
             return RedirectToAction("Result");
         }
 
@@ -116,6 +116,7 @@ namespace WebsiteHuongNghiep.Controllers
             var rs = hlScores.Where(x => x.Score == maxScore).Select(x => x.Table).FirstOrDefault();
 
             var hlResut = await _manageHLResultServices.GetHollandResultByTable(rs);
+            await _manageHLTrackerServices.ReverseTimes(tracker);
             return View(hlResut);
         }
     }
