@@ -106,18 +106,33 @@ namespace WebsiteHuongNghiep.Controllers
             return RedirectToAction("Result");
         }
 
-        public async Task<IActionResult> Result()
+        public async Task<IActionResult> Result(int id)
         {
-            var userId = new Guid(HttpContext.Session.GetString("UserId"));
-            var tracker = await _manageHLTrackerServices.GetTrackerByUserId(userId);
+            if(id == 0)
+            {
+                var userId = new Guid(HttpContext.Session.GetString("UserId"));
+                var tracker = await _manageHLTrackerServices.GetTrackerByUserId(userId);
 
-            var hlScores = await _manageHLScoreServices.GetHollandScoresByTimeStamp(tracker.TimeStamp);
-            var maxScore = hlScores.Max(x => x.Score);
-            var rs = hlScores.Where(x => x.Score == maxScore).Select(x => x.Table).FirstOrDefault();
+                var hlScores = await _manageHLScoreServices.GetHollandScoresByTimeStamp(tracker.TimeStamp);
+                var maxScore = hlScores.Max(x => x.Score);
+                var rs = hlScores.Where(x => x.Score == maxScore).Select(x => x.Table).FirstOrDefault();
+                var hlResut = await _manageHLResultServices.GetHollandResultByTable(rs);
 
-            var hlResut = await _manageHLResultServices.GetHollandResultByTable(rs);
-            await _manageHLTrackerServices.ReverseTimes(tracker);
-            return View(hlResut);
+                // update hlTracker
+                await _manageHLTrackerServices.ReverseTimes(tracker);
+                await _manageHLTrackerServices.SetFinalTable(tracker.Id, rs);
+
+                return View(hlResut);
+            }
+            else
+            {
+                var tracker = await _manageHLTrackerServices.GetTrackerById(id);
+                var hlResult = await _manageHLResultServices.GetHollandResultByTable(tracker.FinalTable);
+
+                return View(hlResult);
+            }
+                
+           
         }
     }
 }

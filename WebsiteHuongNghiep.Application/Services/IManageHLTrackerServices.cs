@@ -16,5 +16,10 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<HollandTracker> GetTrackerByUserId(Guid userId);
         Task<int> IncreaseStep(HollandTracker tracker);
         Task<int> ReverseTimes(HollandTracker tracker);
+        Task SetFinalTable(int id, int tableId);
+        Task<List<HollandTracker>> GetAllTrackersByUserId(Guid userId);
+        Task<HollandTracker> GetTrackerById(int id);
+        Task<int> CountAllTrackers();
+        Task<int> CountTrackersByFinalTable(int finalTable);
     }
 }

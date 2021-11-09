@@ -16,6 +16,7 @@ namespace WebsiteHuongNghiep.Data.Entities
         public int Step { get; set; } 
         public int Times { get; set; } // to indicate times of making test of user
         public string TimeStamp { get; set; } // to link with Holland Score table
+        public int FinalTable { get; set; } //to store the final result.
         public User User { get; set; }
     }
 }

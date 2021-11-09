@@ -23,43 +23,45 @@
 }
 
 <div class="container">
-    <div class="introduce">
-        <p>Bước 2: Cho điểm vào từng ý trong mỗi bảng, và cộng tổng điểm của từng bảng, xác định những bảng có điểm số cao nhất</p>
-        <form asp-action="Make" name="myForm" onsubmit="return validateForm()" method="post" asp-route-id="@ViewBag.Id">
-            <div class="table-name">
-                @ViewBag.TableName
-            </div>
-            <div class="row">
-                @*<div class="col-md-10 question">
-                Tôi có tính tự lập
-            </div>
-            <div class="col-md-2">
-                <input type="text" />
-            </div>*@
-                <table class="table table-question">
-                    <thead>
-                        <tr>
-                            <td>STT</td>
-                            <td>Câu hỏi</td>
-                            <td>Điểm</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+    <div class="row introduce">
+        <div class="col-md-8" style="margin-left:20%;">
+            <p>Bước 2: Cho điểm vào từng ý trong mỗi bảng, và cộng tổng điểm của từng bảng, xác định những bảng có điểm số cao nhất</p>
+            <form asp-action="Make" name="myForm" onsubmit="return validateForm()" method="post" asp-route-id="@ViewBag.Id">
+                <div class="table-name">
+                    @ViewBag.TableName
+                </div>
+                <div class="row">
+                    @*<div class="col-md-10 question">
+                    Tôi có tính tự lập
+                </div>
+                <div class="col-md-2">
+                    <input type="text" />
+                </div>*@
+                    <table class="table table-question">
+                        <thead>
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                                <td class="align-content-start">@Html.DisplayFor(modelItem => item.Question)</td>
-                                <td><input type="text" name="Data" /></td>
+                                <td>STT</td>
+                                <td>Câu hỏi</td>
+                                <td>Điểm</td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                    <td class="align-content-start">@Html.DisplayFor(modelItem => item.Question)</td>
+                                    <td><input type="text" name="Data" /></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
 
-            @*<a asp-action="Make" asp-route-id="1" class="btn btn-bg-light bg-info-o-400">Bảng trước</a>
+                @*<a asp-action="Make" asp-route-id="1" class="btn btn-bg-light bg-info-o-400">Bảng trước</a>
             <a asp-action="Make" asp-route-id="2" class="btn btn-bg-secondary">Bảng sau</a>*@
-            <button class="btn btn-bg-light bg-info-o-400" type="submit">Bảng sau</button>
-        </form>
+                <button class="btn btn-bg-light bg-info-o-400" type="submit">Bảng sau</button>
+            </form>
+        </div>
     </div>
 </div>>

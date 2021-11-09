@@ -83,5 +83,28 @@ namespace WebsiteHuongNghiep.Application.Services
             }
             return await _context.SaveChangesAsync();
         }
+        public async Task SetFinalTable(int id, int tableId)
+        {
+            var hlTracker = await _context.HollandTrackers.FindAsync(id);
+            hlTracker.FinalTable = tableId;
+            await _context.SaveChangesAsync();
+        }
+        public async Task<List<HollandTracker>> GetAllTrackersByUserId(Guid userId)
+        {
+            return await _context.HollandTrackers.Where(x => x.UserId == userId && x.Times == 1).ToListAsync();
+        }
+        public async Task<HollandTracker> GetTrackerById(int id)
+        {
+            return await _context.HollandTrackers.FindAsync(id);
+        }
+        public async Task<int> CountAllTrackers()
+        {
+            return await _context.HollandTrackers.Where(x => x.Times == 1).CountAsync();
+        }
+        public async Task<int> CountTrackersByFinalTable(int finalTable)
+        {
+            var rs = await _context.HollandTrackers.Where(x => x.FinalTable == finalTable).CountAsync();
+            return rs;
+        }
     }
 }

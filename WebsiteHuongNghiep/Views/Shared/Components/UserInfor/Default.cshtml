@@ -1,3 +1,16 @@
 ﻿@model WebsiteHuongNghiep.Data.Entities.User
 
-    <li><a href="#"><span>Xin chào @Model.FirstName</span></a></li>
+<li>
+
+    @if (Model.FirstName != null)
+    {
+        <a href="#"><span>Xin chào @Model.FirstName</span></a>
+        <ul class="sub-menu">
+            <li><a asp-action="Logout" asp-controller="User">Đăng xuất</a></li>
+        </ul>
+    }
+    else
+    {
+        <a asp-action="Index" asp-controller="User"><span>Đăng nhập</span></a>
+    }
+</li>

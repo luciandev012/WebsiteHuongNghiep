@@ -90,17 +90,6 @@
                 position: relative;
             }
 
-        .sub-menu {
-            display: flex;
-            flex-direction: column !important;
-            position: absolute;
-        }
-
-            .sub-menu li {
-                width: 200px;
-                display: block;
-                color: #000000;
-            }
     </style>
 </head>
 <body>
@@ -115,20 +104,29 @@
                     <div class="wrapper d-flex flex-row-reverse">
                         <div class="menu">
                             <ul>
-                                <li><a href="#"><span>Trang chủ</span></a></li>
+                                <li><a href="/"><span>Trang chủ</span></a></li>
                                 <li>
                                     <a href="#"><span>Dịch vụ</span></a>
-                                    <ul class="sub-menu hidden">
-                                        <li><a href="#">Trắc nghiệm tính cách Holland</a></li>
+                                    <ul class="sub-menu">
+                                        <li><a asp-action="Index" asp-controller="Holland">Trắc nghiệm tính cách Holland</a></li>
                                         <li><a href="#">Trắc nghiệm tính cách MBTI</a></li>
                                         <li><a href="#">Trắc nghiệm tính cách Big Five</a></li>
                                         <li><a href="#">Trắc nghiệm tính cách Enneagram</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#"><span>Tra cứu online</span></a></li>
+                                <li><a href="#"><span>Bài viết</span></a></li>
                                 <li><a href="#"><span>Về chúng tôi</span></a></li>
+                                <li>
+                                    <a href="#"><span>Lịch sử làm trắc nghiệm</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a asp-action="Holland" asp-controller="History">Trắc nghiệm Holland</a></li>
+                                        <li><a href="#">Trắc nghiệm MBTI</a></li>
+                                        <li><a href="#">Trắc nghiệm Big Five</a></li>
+                                        <li><a href="#">Trắc nghiệm Enneagram</a></li>
+                                    </ul>
+                                </li>
                                 @await Component.InvokeAsync("UserInfor")
-                                <li><a href="#"><span>Lịch sử làm trắc nghiệm</span></a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -136,8 +134,10 @@
             </div>
         </nav>
     </header>
-    
+    <div class="main-content">
         @RenderBody()
+    </div>
+
 
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">

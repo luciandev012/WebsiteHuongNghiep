@@ -53,6 +53,7 @@ namespace WebsiteHuongNghiep.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
+
             if(!ModelState.IsValid)
             {
                 return View(ModelState);
@@ -65,7 +66,11 @@ namespace WebsiteHuongNghiep.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        public async Task<IActionResult> Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
 
 
     }

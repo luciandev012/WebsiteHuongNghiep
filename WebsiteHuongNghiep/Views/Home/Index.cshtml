@@ -1,9 +1,12 @@
-﻿<div class="row">
+﻿<div class="row" style="z-index: -1;">
     <div class="col-md-5 holland-left">
         <h2>Trắc nghiệm Holland</h2>
         <p>Bộ trắc nghiệm này giúp các bạn tự phát hiện các kiểu người trội nhất đang tiềm ẩn trong con người mình để tự định hướng con đường nghề nghiệp mà bạn muốn theo đuổi trong tương lai.</p>
-        <a asp-action="Index" asp-controller="Holland" class="btn btn-primary">Tìm hiểu thêm</a>
-        <a asp-action="Make" asp-controller="Holland" class="btn btn-primary">Làm trắc nghiệm</a>
+        <div>
+            <a asp-action="Index" asp-controller="Holland" class="btn btn-primary">Tìm hiểu thêm</a>
+            <a asp-action="Make" asp-controller="Holland" class="btn btn-primary">Làm trắc nghiệm</a>
+        </div>
+        <p style="margin-top: 20px; padding:20px;"><span style="color: red; font-size:30px;">@ViewBag.HollandCount+</span> số lần làm trắc nghiệm</p>
     </div>
     <div class="col-md-7 holland-right">
 

@@ -1,0 +1,30 @@
+﻿@model  IEnumerable<WebsiteHuongNghiep.Application.ViewModels.HollandTrackerVM>
+
+<div class="container">
+    <div class="row introduce">
+        <h2>Lịch sử làm trắc nghiệm Holland</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Lần</td>
+                    <td>Thời gian</td>
+                    <td>Thống kê</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @foreach (var item in Model)
+                {
+                    
+                    <tr>
+                        <td>@item.Index</td>
+                        <td>@item.TimeStamp</td>
+                        <td>Có @item.SameResultCount kết quả giống bạn. Tỉ lệ <span style="color: chocolate">@item.SameResultPercent%</span></td>
+                        <td><a asp-action="Result" asp-controller="Holland" asp-route-id="@item.Id" class="btn-bg-light">Chi Tiết</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
