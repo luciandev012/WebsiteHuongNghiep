@@ -50,7 +50,7 @@ namespace WebsiteHuongNghiep.Application.Services.System
                 FirstName = request.FirstName,
                 UserName = request.PhoneNumber,
                 PhoneNumber = request.PhoneNumber,
-
+                LockoutEnabled = false
             };
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)

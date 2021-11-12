@@ -11712,3 +11712,14 @@ header.masthead h1, header.masthead .h1 {
     display: block!important;
     z-index: 1;
 }
+.blog-item{
+    padding: 10px;
+    overflow: hidden;
+    
+    height: 300px;
+}
+.blog-item img{
+   width: 280px;
+   height: 200px;
+   margin-bottom: 20px;
+}

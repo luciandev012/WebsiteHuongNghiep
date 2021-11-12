@@ -22,6 +22,8 @@ namespace WebsiteHuongNghiep.Data.EF
         public DbSet<HollandScore> HollandScores { get; set; }
         public DbSet<HollandTable> HollandTables { get; set; }
         public DbSet<HollandResult> HollandResults { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -73,6 +75,17 @@ namespace WebsiteHuongNghiep.Data.EF
                 e.Property(u => u.LastName).HasMaxLength(100);
             });
 
+            //
+            modelBuilder.Entity<Blog>().ToTable("Blogs").HasKey(x => x.Id);
+            modelBuilder.Entity<Blog>(e => {
+                e.Property(b => b.Content).HasColumnType("ntext");
+            });
+
+            //
+            modelBuilder.Entity<Category>().ToTable("Categories").HasKey(x => x.Id);
+            modelBuilder.Entity<Blog>().HasOne(b => b.Category)
+                                       .WithMany(c => c.Blogs)
+                                       .HasForeignKey(b => b.CategoryId);
 
             //
             modelBuilder.Entity<Role>().ToTable("Roles");

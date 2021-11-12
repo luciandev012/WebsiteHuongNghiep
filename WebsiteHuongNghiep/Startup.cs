@@ -10,7 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebsiteHuongNghiep.Application.Common;
 using WebsiteHuongNghiep.Application.Services;
+using WebsiteHuongNghiep.Application.Services.BlogService;
 using WebsiteHuongNghiep.Application.Services.System;
 using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
@@ -48,6 +50,8 @@ namespace WebsiteHuongNghiep
             services.AddTransient<UserManager<User>, UserManager<User>>();
             services.AddTransient<SignInManager<User>, SignInManager<User>>();
             services.AddTransient<IUserServices, UserServices>();
+            services.AddTransient<IStorageService, StorageService>();
+            services.AddTransient<IManageBlogServices, ManageBlogService>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }

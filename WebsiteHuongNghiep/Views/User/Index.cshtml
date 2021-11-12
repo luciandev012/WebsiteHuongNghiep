@@ -82,6 +82,8 @@
                 <div class="col-lg-8 text-center">
                     <!--Sign in-->
                     <h3 id="title-header" class="text-white mt-0">Đăng nhập</h3>
+                    <div class="text-danger" id="msgAlert">@ViewBag.ErrorMessage</div>
+                    <div class="text-success" id="sucAlert">@ViewBag.SuccessMessage</div>
                     <div class="login-signin" id="sign-in">
                         <form class="form" id="kt_login_signin_form" asp-action="Index" asp-controller="User" method="post">
                             @Html.ValidationMessage("CustomError")
@@ -128,7 +130,7 @@
                     </div>
                     <!--Sign up-->
                     <div class="login-signup" id="sign-up">
-                        <form class="form" id="kt_login_signin_form" asp-action="Register" asp-controller="User" method="post">
+                        <form class="form" id="kt_login_signin_form" onsubmit="return validateRegisterForm()" asp-action="Register" asp-controller="User" method="post">
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-4 text-white">
@@ -139,7 +141,7 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                               type="text" placeholder="Số điện thoại đăng ký" name="PhoneNumber" value=""
+                                               type="text" placeholder="Số điện thoại đăng ký" name="PhoneNumber" id="phoneNumber" value=""
                                                autocomplete="off" required="">
                                     </div>
                                 </div>
@@ -154,11 +156,14 @@
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="password" placeholder="Mật khẩu" value="" name="Password" required="">
+                                       type="password" placeholder="Mật khẩu" value="" name="Password" id="password" required="">
                             </div>
                             <div class="form-group">
                                 <input class="form-control h-auto text-white placeholder-white opacity-90 bg-light-o-90 border-0 py-4 px-8 mb-5"
-                                       type="password" placeholder="Nhập lại mật khẩu" value="" name="ConfirmPassword" required="">
+                                       type="password" placeholder="Nhập lại mật khẩu" value="" name="ConfirmPassword" id="confirmPassword" required="">
+                            </div>
+                            <div>
+                                <span id="passwordMessage"></span>
                             </div>
                             <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
                                 <div class="checkbox-inline">
@@ -191,12 +196,12 @@
                     </div>
 
                     <!-- <div class="mt-10">
-                        <span id="reminder" class="opacity-90 mr-4" style="color:#f7d51a;font-size:15px;">
-                            Bạn đã có tài khoản?
-                        </span>
-                        <a href="javascript:;" id="kt_login_signup" class="text-white"
-                            style="color:#f7d51a;font-size:15px; font-weight: bold;">Đăng nhập ngay</a>
-                    </div> -->
+        <span id="reminder" class="opacity-90 mr-4" style="color:#f7d51a;font-size:15px;">
+            Bạn đã có tài khoản?
+        </span>
+        <a href="javascript:;" id="kt_login_signup" class="text-white"
+            style="color:#f7d51a;font-size:15px; font-weight: bold;">Đăng nhập ngay</a>
+    </div> -->
                 </div>
             </div>
         </div>
@@ -220,6 +225,14 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        setTimeout(() => {
+            $("#msgAlert").fadeOut('slow');
+        }, 2000);
+        setTimeout(() => {
+            $("#sucAlert").fadeOut('slow');
+        }, 2000);
+    </script>
 </body>
 
 </html>

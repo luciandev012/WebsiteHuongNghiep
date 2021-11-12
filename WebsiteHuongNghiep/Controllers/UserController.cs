@@ -20,6 +20,8 @@ namespace WebsiteHuongNghiep.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.ErrorMessage = TempData["ErrorMessage"];
+            ViewBag.SuccessMessage = TempData["SuccessMessage"];
             return View();
         }
         [HttpPost]
@@ -34,18 +36,20 @@ namespace WebsiteHuongNghiep.Controllers
             if (!result.Success)
             {
                 ModelState.AddModelError("CustomError", result.Message);
+                TempData["ErrorMessage"] = result.Message;
                 return new RedirectResult(Url.Action("Index") + HttpUtility.UrlDecode("#about"));
                 //return View("Index#about");
                 //return RedirectToPage("./Index#about"); 
             }
             var user = result.ResponseObj;
-            if(result.Message == "admin")
+            HttpContext.Session.SetString("UserName", user.FirstName);
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            if (result.Message == "admin")
             {
                 return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
             
-            HttpContext.Session.SetString("UserName", user.FirstName);
-            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            
             return RedirectToAction("Index", "Home");
 
 
@@ -61,10 +65,11 @@ namespace WebsiteHuongNghiep.Controllers
             var result = await _userServices.Register(request);
             if(result.Success)
             {
-
+                TempData["SuccessMessage"] = result.Message;
                 return new RedirectResult(Url.Action("Index") + HttpUtility.UrlDecode("#about"));
             }
-            return RedirectToAction("Index");
+            TempData["ErrorMessage"] = result.Message;
+            return new RedirectResult(Url.Action("Index") + HttpUtility.UrlDecode("#about"));
         }
         public async Task<IActionResult> Logout()
         {
