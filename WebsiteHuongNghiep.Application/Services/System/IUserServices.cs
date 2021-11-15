@@ -12,5 +12,9 @@ namespace WebsiteHuongNghiep.Application.Services.System
     {
         Task<Response<User>> Authenticate(LoginRequest request);
         Task<Response<User>> Register(RegisterRequest request);
+        Task<List<User>> GetUser(string phoneNumber);
+        Task<User> GetUserById(Guid userId);
+        Task<bool> Edit(Guid userId, User userRequest);
+        Task<int> Delete(Guid userId);
     }
 }

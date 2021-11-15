@@ -1,18 +1,45 @@
-﻿@model IEnumerable<WebsiteHuongNghiep.Data.Entities.Blog>
+﻿@using WebsiteHuongNghiep.Application.Common
+@model PagedResult<WebsiteHuongNghiep.Application.ViewModels.BlogVM>
 
 @{ 
     ViewData["Title"] = "Blog";
     
 }
-<div class="container">
-    <div class="row">
-        @foreach (var item in Model)
+
+@section Scripts{ 
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "aqua";
+        main.style.minHeight = "unset";
+    </script>
+    
+}
+
+<div class="container-fluid upper">
+    
+</div>
+<div class="container" style="padding: 20px;">
+    <div class="row" id="search">
+        <div class="col-md-4">
+            <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" value="@ViewBag.Keyword" type="text" name="keyword">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: 700px;">
+        @foreach (var item in Model.Items)
         {
             <div class="col-md-3 blog-item">
-                <a asp-action="Detail" asp-controller="Blog" asp-route-id="@item.MetaTitle"><img src="" alt="img"/></a>
-                <a asp-action="Detail" asp-controller="Blog" asp-route-id="@item.MetaTitle"><p>@item.Title</p></a>
-                <p>Bài viết</p>
+                <a asp-action="Detail" asp-controller="Blog" asp-route-metaTitle="@item.MetaTitle"><img src="~/user-content/@item.Image" alt="img" /></a>
+
+                <a asp-action="Detail" asp-controller="Blog" asp-route-metaTitle="@item.MetaTitle"><p>@item.Title</p></a>
+                <p>@item.Category</p>
             </div>
         }
     </div>
+    @await Component.InvokeAsync("Paging", Model)
 </div>

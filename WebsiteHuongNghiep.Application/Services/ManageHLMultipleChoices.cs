@@ -35,12 +35,16 @@ namespace WebsiteHuongNghiep.Application.Services
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<List<MultipleChoicesVM>> GetAll()
+        public async Task<List<MultipleChoicesVM>> GetAll(string keyword)
         {
+            if (String.IsNullOrEmpty(keyword))
+            {
+                keyword = "";
+            }
             var query = from m in _context.HollandMultipleChoices
                         join t in _context.HollandTables on m.HLTableId equals t.HLTableId
                         select new { m, t };
-            var data = await query.Select(x => new MultipleChoicesVM()
+            var data = await query.Where(x => x.m.Question.Contains(keyword)).Select(x => new MultipleChoicesVM()
             {
                 Id = x.m.Id,
                 Question = x.m.Question,

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -4402,8 +4402,7 @@ input[type="button"].btn-block {
 
 .card-footer {
   padding: 2rem 2.25rem;
-  background-color: #ffffff;
-  border-top: 1px solid #EBEDF3; }
+  background-color: unset; }
   .card-footer:last-child {
     border-radius: 0 0 calc(0.42rem - 1px) calc(0.42rem - 1px); }
 

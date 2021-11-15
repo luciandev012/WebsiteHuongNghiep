@@ -13,7 +13,7 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<int> Create(HollandMultipleChoice request);
         Task<int> Update(HollandMultipleChoice request);
         Task<int> Delete(int id);
-        Task<List<MultipleChoicesVM>> GetAll();
+        Task<List<MultipleChoicesVM>> GetAll(string keyword);
         Task<MultipleChoicesVM> GetById(int id);
         Task<List<MultipleChoicesVM>> GetByTable(int tableId);
     }

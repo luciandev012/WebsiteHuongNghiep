@@ -11693,9 +11693,10 @@ header.masthead h1, header.masthead .h1 {
 .main-content {
     background-image: url(../assets/img/pngtree-taobao-vector-cartoon-neat-study-desk-table-home-illustration-table-lamp-image_130341.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
+    
     min-height: 90vh;
-    max-height: 
+    
 }
 .sub-menu{
     position: absolute;
@@ -11722,4 +11723,11 @@ header.masthead h1, header.masthead .h1 {
    width: 280px;
    height: 200px;
    margin-bottom: 20px;
+}
+.blog-item p{
+    font-weight:bold;
+}
+.upper{
+    height: 8vh;
+    border-bottom: 1px solid gray;
 }

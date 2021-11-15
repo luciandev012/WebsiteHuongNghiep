@@ -42,8 +42,48 @@ namespace WebsiteHuongNghiep.Application.Services.System
 
         }
 
+        public async Task<int> Delete(Guid userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            var userRole = await _context.UserRoles.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            _context.UserRoles.Remove(userRole);
+            _context.Users.Remove(user);
+            return await _context.SaveChangesAsync();
+
+        }
+
+        public async Task<bool> Edit(Guid userId, User userRequest)
+        {
+            //var userResult = await _userManager.UpdateAsync(userRequest);
+            var user = await _context.Users.FindAsync(userId);
+            user.FirstName = userRequest.FirstName;
+            user.LastName = userRequest.LastName;
+            user.UserName = userRequest.UserName;
+            return await _context.SaveChangesAsync() == 1;
+        }
+
+        public async Task<List<User>> GetUser(string phoneNumber)
+        {
+            if (String.IsNullOrEmpty(phoneNumber))
+            {
+                phoneNumber = "";
+            }
+            var users = await _userManager.Users.Where(x => x.UserName.Contains(phoneNumber)).ToListAsync();
+            return users;
+        }
+
+        public async Task<User> GetUserById(Guid userId)
+        {
+            return await _userManager.FindByIdAsync(userId.ToString());
+        }
+
         public async Task<Response<User>> Register(RegisterRequest request)
         {
+            var existUser = await _userManager.FindByNameAsync(request.PhoneNumber);
+            if(existUser == null)
+            {
+                return new Response<User>(false, "Đăng kí thất bại, trùng số điện thoại!", null);
+            }
             var user = new User()
             {
                 LastName = request.LastName,
@@ -55,6 +95,10 @@ namespace WebsiteHuongNghiep.Application.Services.System
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
+                var role = await _context.Roles.Where(x => x.Name == "student").FirstOrDefaultAsync();
+                var realUser = await _context.Users.Where(x => x.UserName == request.PhoneNumber).FirstOrDefaultAsync();
+                await _userManager.AddToRoleAsync(user, "student");
+
                 return new Response<User>(true, "Đăng ký thành công!", null);
             }
             return new Response<User>(false, result.Errors.First().Description, null);

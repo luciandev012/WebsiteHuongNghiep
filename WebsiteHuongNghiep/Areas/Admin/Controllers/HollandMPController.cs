@@ -21,9 +21,9 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             _manageHLMultipleChoice = manageHLMultipleChoice;
             _manageHLTable = manageHLTable;
         }
-        public async Task<IActionResult> Index(int? tableId)
+        public async Task<IActionResult> Index(int? tableId, string keyword)
         {
-            var hlMultiples = await _manageHLMultipleChoice.GetAll();
+            var hlMultiples = await _manageHLMultipleChoice.GetAll(keyword);
             if (tableId.HasValue)
             {
                 hlMultiples = await _manageHLMultipleChoice.GetByTable(tableId.Value);
@@ -35,6 +35,7 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
                 Value = x.HLTableId.ToString(),
                 Selected = tableId.HasValue && tableId == x.HLTableId
             });
+            ViewBag.Keyword = keyword;
             return View(hlMultiples);
         }
         [HttpGet]

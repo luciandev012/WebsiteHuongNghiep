@@ -15,15 +15,17 @@ namespace WebsiteHuongNghiep.Controllers
         {
             _manageBlogServices = manageBlogServices;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword, int pageIndex = 1)
         {
-            var blogs = await _manageBlogServices.GetAllBlog();
+            var blogs = await _manageBlogServices.GetBlogPaging(keyword, pageIndex);
+            ViewBag.Keyword = keyword;
             //ViewBag.ContentFolder = 
             return View(blogs);
         }
         public async Task<IActionResult> Detail(string metaTitle)
         {
             var blog = await _manageBlogServices.GetBlogByMetaTitle(metaTitle);
+            await _manageBlogServices.IncreaseViewCount(blog.Id);
             return View(blog);
         }
     }
