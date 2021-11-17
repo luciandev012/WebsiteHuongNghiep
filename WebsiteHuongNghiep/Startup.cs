@@ -54,6 +54,8 @@ namespace WebsiteHuongNghiep
             services.AddTransient<IStorageService, StorageService>();
             services.AddTransient<IManageBlogServices, ManageBlogService>();
             services.AddTransient<IManageMbtiTableServices, ManageMbtiTableServices>();
+            services.AddTransient<IManageMbtiResultServices, ManageMbtiResultServices>();
+            services.AddTransient<IManageMbtiTrackerServices, ManageMbtiTrackerService>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }

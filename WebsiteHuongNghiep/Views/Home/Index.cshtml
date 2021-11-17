@@ -19,8 +19,10 @@
     <div class="col-md-5 mbti-right">
         <h2>Trắc nghiệm MBTI</h2>
         <p>Bộ trắc nghiệm này giúp các bạn tự phát hiện các kiểu người trội nhất đang tiềm ẩn trong con người mình để tự định hướng con đường nghề nghiệp mà bạn muốn theo đuổi trong tương lai.</p>
-        <a href="#" class="btn btn-primary">Làm trắc nghiệm</a>
+        <a asp-action="Index" asp-controller="Mbti" class="btn btn-primary">Làm trắc nghiệm</a>
+        <p style="margin-top: 20px; padding:20px;"><span style="color: red; font-size:30px;">@ViewBag.MbtiCount+</span> số lần làm trắc nghiệm</p>
     </div>
+    
 </div>
 <div class="row">
     <div class="col-md-7 bigfive-left">

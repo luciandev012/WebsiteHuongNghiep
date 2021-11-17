@@ -1,0 +1,26 @@
+﻿@model WebsiteHuongNghiep.Data.Entities.MbtiResult
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "aliceblue";
+        //main.style.minHeight = "unset";
+    </script>
+
+}
+
+<div class="container">
+    <div class="row mbti-question">
+        <h2 style="padding-left: 100px; margin-bottom: 40px;">Kết quả trắc nghiệm của bạn</h2>
+        <div class="col-md-8">
+            @Html.Raw(Model.Explaination)
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Data.Entities.MbtiResult>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Index" method="get">
+    <div class="row">
+        <div class="col-md-2">
+            <a asp-action="Create" class="btn btn-success mg-20">Thêm mới</a>
+
+        </div>
+
+        <div class="col-md-4">
+            <input type="text" placeholder="Tìm kiếm theo số điện thoại" name="keyword" value="@ViewBag.Keyword" class="form-control" />
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinalResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Explaination)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinalResult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Explaination)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

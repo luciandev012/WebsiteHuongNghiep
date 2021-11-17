@@ -48,5 +48,62 @@ namespace WebsiteHuongNghiep.Application.Services.MBTI
         {
             return await _context.MbtiTables.ToListAsync();
         }
+        public async Task<string> GetResult(int[] score)
+        {
+            string result = "";
+            int e, i, s, n, t, f, j, p; e = i = s = n = t = f = j = p = 0;
+            var loop = score.Length / 14;
+            for(int index = 0; index < loop; index++)
+            {
+                index *= 14;
+                e += score[index + 0];
+                i += score[index + 1];
+                s += score[index + 2] + score[index + 4];
+                n += score[index + 3] + score[index + 5];
+                t += score[index + 6] + score[index + 8];
+                f += score[index + 7] + score[index + 9];
+                j += score[index + 10] + score[index + 12];
+                p += score[index + 11] + score[index + 13];
+            }
+            if(e > i)
+            {
+                result += "E";
+            }
+            else
+            {
+                result += "I";
+            }
+            if (s > n)
+            {
+                result += "S";
+            }
+            else
+            {
+                result += "N";
+            }
+            if (t > f)
+            {
+                result += "T";
+            }
+            else
+            {
+                result += "F";
+            }
+            if (j > p)
+            {
+                result += "J";
+            }
+            else
+            {
+                result += "P";
+            }
+            return result;
+        }
+
+        public async Task<MbtiResult> GetMbtiResult(string finalResult)
+        {
+            var mbtiResult = await _context.MbtiResults.Where(x => x.FinalResult == finalResult).FirstOrDefaultAsync();
+            return mbtiResult;
+        }
     }
 }

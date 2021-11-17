@@ -14,5 +14,8 @@ namespace WebsiteHuongNghiep.Application.Services.MBTI
         Task<int> Edit(MbtiTable request);
         Task<int> Delete(int id);
         Task<MbtiTable> GetMbtiTableById(int id);
+        Task<string> GetResult(int[] score);
+
+        Task<MbtiResult> GetMbtiResult(string finalResult);
     }
 }
