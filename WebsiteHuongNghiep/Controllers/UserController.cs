@@ -76,7 +76,16 @@ namespace WebsiteHuongNghiep.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
-
-
+        [HttpGet]
+        public async Task<IActionResult> ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(RegisterRequest request)
+        {
+            var result = await _userServices.ForgotPassword(request);
+            return RedirectToAction("Index");
+        }
     }
 }

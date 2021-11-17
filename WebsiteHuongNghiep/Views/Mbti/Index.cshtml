@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "aliceblue";
+        main.style.minHeight = "unset";
+    </script>
+
+}
+
+<div class="container">
+    <div class="row introduce">
+        <h1>Trắc nghiệm xác định khuynh hướng tính cách MBTI</h1>
+        <p style="margin-top: 50px;">
+            Giới thiệu: Cho điểm các câu là số nguyên từ 0-5. Tổng điểm các câu cùng nhóm là 5.
+        </p>
+        <a asp-action="Make" class="btn btn-secondary">Bước 2 (Làm trắc nghiệm)</a>
+    </div>
+</div>
+
+

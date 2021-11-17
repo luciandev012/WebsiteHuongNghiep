@@ -11731,3 +11731,17 @@ header.masthead h1, header.masthead .h1 {
     height: 8vh;
     border-bottom: 1px solid gray;
 }
+.mbti-question{
+    margin-left: 200px!important;
+    padding-top: 30px;
+}
+.mbti-question ol{
+    list-style-type: lower-alpha;
+}
+.mbti-question {
+    width: fit-content;
+    height: fit-content;
+}
+.mbti-question input{
+    width: 50px;
+}

@@ -80,7 +80,7 @@ namespace WebsiteHuongNghiep.Application.Services.System
         public async Task<Response<User>> Register(RegisterRequest request)
         {
             var existUser = await _userManager.FindByNameAsync(request.PhoneNumber);
-            if(existUser == null)
+            if(existUser != null)
             {
                 return new Response<User>(false, "Đăng kí thất bại, trùng số điện thoại!", null);
             }
@@ -102,6 +102,22 @@ namespace WebsiteHuongNghiep.Application.Services.System
                 return new Response<User>(true, "Đăng ký thành công!", null);
             }
             return new Response<User>(false, result.Errors.First().Description, null);
+        }
+        public async Task<bool> ForgotPassword(RegisterRequest request)
+        {
+            var user = await _userManager.FindByNameAsync(request.PhoneNumber);
+            if(user == null)
+            {
+                return false;
+            }
+            if(user.FirstName != request.FirstName || user.LastName != request.LastName)
+            {
+                return false;
+            }
+            var password = _userManager.PasswordHasher.HashPassword(user, request.Password);
+            user.PasswordHash = password;
+            
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

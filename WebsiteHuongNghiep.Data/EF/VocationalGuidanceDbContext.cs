@@ -24,6 +24,9 @@ namespace WebsiteHuongNghiep.Data.EF
         public DbSet<HollandResult> HollandResults { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<MbtiTable> MbtiTables { get; set; }
+        public DbSet<MbtiResult> MbtiResults { get; set; }
+        public DbSet<MbtiTracker> MbtiTrackers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -86,6 +89,24 @@ namespace WebsiteHuongNghiep.Data.EF
             modelBuilder.Entity<Blog>().HasOne(b => b.Category)
                                        .WithMany(c => c.Blogs)
                                        .HasForeignKey(b => b.CategoryId);
+
+
+            //
+            modelBuilder.Entity<MbtiTracker>().ToTable("MbtiTrackers").HasKey(e => e.Id);
+            modelBuilder.Entity<MbtiTracker>(e => {
+                e.Property(mt => mt.TimeStamp).HasColumnType("varchar(50)");
+                e.HasOne(ht => ht.User).WithMany(u => u.MbtiTrackers).HasForeignKey(ht => ht.UserId);
+            });
+
+            //
+            modelBuilder.Entity<MbtiTable>().ToTable("MbtiTables").HasKey(e => e.Id);
+            modelBuilder.Entity<MbtiTable>(e => { e.Property(mt => mt.Position).HasColumnType("int"); });
+            //
+            modelBuilder.Entity<MbtiResult>().ToTable("MbtiResults").HasKey(e => e.Id);
+            modelBuilder.Entity<MbtiResult>(e => 
+            {
+                e.Property(mr => mr.Explaination).HasColumnType("ntext");
+            });
 
             //
             modelBuilder.Entity<Role>().ToTable("Roles");

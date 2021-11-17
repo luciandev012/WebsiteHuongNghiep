@@ -1,0 +1,31 @@
+﻿@model List<WebsiteHuongNghiep.Data.Entities.MbtiTable>
+@{
+    ViewData["Title"] = "Make";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "aliceblue";
+        main.style.minHeight = "unset";
+    </script>
+
+}
+
+<div class="container">
+    <div class="row mbti-question">
+        <div class="col-md-8">
+            @foreach (var item in Model)
+            {
+                <p style="font-weight: bold;"><span>@item.Position</span>. @item.Question</p>
+                <ol>
+                    <li>@item.AnswerA <input type="text" name="Score" /></li>
+                    <li>@item.AnswerB <input type="text" name="Score" /></li>
+                </ol>
+            }
+        </div>
+    </div>
+</div>
+

@@ -13,5 +13,6 @@ namespace WebsiteHuongNghiep.Data.Entities
         public string LastName { get; set; }
         public DateTime DoB { get; set; }
         public List<HollandTracker> HollandTrackers { get; set; }
+        public List<MbtiTracker> MbtiTrackers { get; set; }
     }
 }

@@ -114,7 +114,7 @@
                                         Ghi nhớ đăng nhập
                                     </label>
                                 </div>
-                                <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">
+                                <a asp-action="ForgotPassword" asp-controller="User" id="kt_login_forgot" class="text-white font-weight-bold">
                                     Quên mật
                                     khẩu?
                                 </a>
@@ -173,10 +173,7 @@
                                         Tôi đồng ý điều khoản
                                     </label>
                                 </div>
-                                <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">
-                                    Quên mật
-                                    khẩu?
-                                </a>
+                                
                             </div>
                             <div class="form-group text-center mt-10">
                                 <button id="kt_login_signin_submit" type="submit"

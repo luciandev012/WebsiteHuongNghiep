@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Common;
 using WebsiteHuongNghiep.Application.Services;
 using WebsiteHuongNghiep.Application.Services.BlogService;
+using WebsiteHuongNghiep.Application.Services.MBTI;
 using WebsiteHuongNghiep.Application.Services.System;
 using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
@@ -52,6 +53,7 @@ namespace WebsiteHuongNghiep
             services.AddTransient<IUserServices, UserServices>();
             services.AddTransient<IStorageService, StorageService>();
             services.AddTransient<IManageBlogServices, ManageBlogService>();
+            services.AddTransient<IManageMbtiTableServices, ManageMbtiTableServices>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }
