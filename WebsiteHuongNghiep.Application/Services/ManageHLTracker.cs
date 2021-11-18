@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
 
@@ -105,6 +106,29 @@ namespace WebsiteHuongNghiep.Application.Services
         {
             var rs = await _context.HollandTrackers.Where(x => x.FinalTable == finalTable).CountAsync();
             return rs;
+        }
+        public async Task<int> CountUser()
+        {
+            return await _context.HollandTrackers.GroupBy(x => x.UserId).CountAsync();
+        }
+        public async Task<List<TrackerVM>> GetAll()
+        {
+            var hollands = await _context.HollandTrackers.ToListAsync();
+
+            var trackers = new List<TrackerVM>();
+            foreach (var item in hollands)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.FinalTable.ToString(),
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                };
+                trackers.Add(tracker);
+            }
+            return trackers;
         }
     }
 }

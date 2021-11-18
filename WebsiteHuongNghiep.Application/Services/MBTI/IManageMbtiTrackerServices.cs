@@ -14,5 +14,7 @@ namespace WebsiteHuongNghiep.Application.Services.MBTI
         Task<int> CountTracker();
         Task<List<MbtiTracker>> GetTrackerByUserId(Guid userId);
         Task<int> CountTrackerByFinalResult(string finalResult);
+        Task<int> CountUser();
+        Task<List<TrackerVM>> GetAll();
     }
 }

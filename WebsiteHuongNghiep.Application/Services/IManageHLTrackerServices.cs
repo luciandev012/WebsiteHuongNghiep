@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Application.Services
@@ -21,5 +22,7 @@ namespace WebsiteHuongNghiep.Application.Services
         Task<HollandTracker> GetTrackerById(int id);
         Task<int> CountAllTrackers();
         Task<int> CountTrackersByFinalTable(int finalTable);
+        Task<int> CountUser();
+        Task<List<TrackerVM>> GetAll();
     }
 }

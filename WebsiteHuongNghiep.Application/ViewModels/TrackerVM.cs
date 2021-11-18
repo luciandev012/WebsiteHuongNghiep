@@ -14,5 +14,6 @@ namespace WebsiteHuongNghiep.Application.ViewModels
         public int SameResultCount { get; set; }
         public float SameResultPercent { get; set; }
         public string FinalResult { get; set; }
+        public string Username { get; set; }
     }
 }
