@@ -17,5 +17,6 @@ namespace WebsiteHuongNghiep.Application.Services.System
         Task<bool> Edit(Guid userId, User userRequest);
         Task<int> Delete(Guid userId);
         Task<bool> ForgotPassword(RegisterRequest request);
+        Task<User> GetUserById(string id);
     }
 }

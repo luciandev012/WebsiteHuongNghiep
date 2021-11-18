@@ -70,6 +70,11 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var user = await _userServices.GetUserById(id);
+            return View(user);
+        }
 
     }
 }

@@ -59,6 +59,9 @@ namespace WebsiteHuongNghiep.Application.Services.System
             user.FirstName = userRequest.FirstName;
             user.LastName = userRequest.LastName;
             user.UserName = userRequest.UserName;
+            user.DoB = userRequest.DoB;
+            user.Email = userRequest.Email;
+            user.PhoneNumber = userRequest.PhoneNumber;
             return await _context.SaveChangesAsync() == 1;
         }
 
@@ -118,6 +121,12 @@ namespace WebsiteHuongNghiep.Application.Services.System
             user.PasswordHash = password;
             
             return await _context.SaveChangesAsync() > 0;
+        }
+        public async Task<User> GetUserById(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return user;
+
         }
     }
 }
