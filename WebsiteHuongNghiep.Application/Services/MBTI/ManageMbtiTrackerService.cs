@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
 
@@ -31,5 +32,15 @@ namespace WebsiteHuongNghiep.Application.Services.MBTI
         {
             return await _context.MbtiTrackers.CountAsync();
         }
+        public async Task<List<MbtiTracker>> GetTrackerByUserId(Guid userId)
+        {
+
+            return await _context.MbtiTrackers.Where(x => x.UserId == userId).ToListAsync();
+        }
+        public async Task<int> CountTrackerByFinalResult(string finalResult)
+        {
+            return await _context.MbtiTrackers.Where(x => x.FinalResult == finalResult).CountAsync();
+        }
+
     }
 }
