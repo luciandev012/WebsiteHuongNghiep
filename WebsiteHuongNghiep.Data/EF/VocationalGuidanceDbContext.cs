@@ -27,7 +27,9 @@ namespace WebsiteHuongNghiep.Data.EF
         public DbSet<MbtiTable> MbtiTables { get; set; }
         public DbSet<MbtiResult> MbtiResults { get; set; }
         public DbSet<MbtiTracker> MbtiTrackers { get; set; }
-
+        public DbSet<BigFiveResult> BigFiveResults { get; set; }
+        public DbSet<BigFiveQuestion> BigFiveQuestions { get; set; }
+        public DbSet<BigFiveTracker> BigFiveTrackers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -107,6 +109,21 @@ namespace WebsiteHuongNghiep.Data.EF
             {
                 e.Property(mr => mr.Explaination).HasColumnType("ntext");
             });
+
+
+            //
+            modelBuilder.Entity<BigFiveResult>().ToTable("BigFiveResults").HasKey(e => e.Id);
+            modelBuilder.Entity<BigFiveResult>(e => { e.Property(b => b.Result).HasColumnType("ntext"); });
+
+            //
+            modelBuilder.Entity<BigFiveQuestion>().ToTable("BigFiveQuestions").HasKey(e => e.Id);
+            modelBuilder.Entity<BigFiveQuestion>().HasOne(b => b.BigFiveResult)
+                                                  .WithMany(q => q.BigFiveQuestions)
+                                                  .HasForeignKey(b => b.BigFiveResultId);
+
+            //
+            modelBuilder.Entity<BigFiveTracker>().ToTable("BigFiveTrackers").HasKey(e => e.Id);
+            modelBuilder.Entity<BigFiveTracker>().HasOne(bft => bft.User).WithMany(u => u.BigFiveTrackers).HasForeignKey(bft => bft.UserId);
 
             //
             modelBuilder.Entity<Role>().ToTable("Roles");
