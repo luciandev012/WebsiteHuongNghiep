@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Application.Services.BigFive
@@ -14,6 +15,7 @@ namespace WebsiteHuongNghiep.Application.Services.BigFive
         Task<int> Delete(int id);
         Task<List<BigFiveQuestion>> GetAll(string keyword);
         Task<BigFiveQuestion> GetBigFiveQuestionById(int id);
-
+        Task<List<BigFiveVM>> GetBigFiveVMs();
+        Task<int> GetResult(int[] score, int[] resultId);
     }
 }

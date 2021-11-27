@@ -59,6 +59,7 @@ namespace WebsiteHuongNghiep
             services.AddTransient<IManageMbtiTrackerServices, ManageMbtiTrackerService>();
             services.AddTransient<IManageBFResult, ManageBFResult>();
             services.AddTransient<IManageBFQuestion, ManageBFQuestion>();
+            services.AddTransient<IManageBFTracker, ManageBFTracker>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }

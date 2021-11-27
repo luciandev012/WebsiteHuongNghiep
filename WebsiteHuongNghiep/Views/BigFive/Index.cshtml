@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+        
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Mô hình tính cách 5 yếu tố (Five Factor Model)</h1>
+    <p>
+        Nói đến các bài kiểm tra tính cách tâm lý thì dường như ai cũng biết đến MBTI.
+        Đây là một bài kiểm tra đánh giá tính cách được nhiều người dùng để tìm hiểu về những tính cách của bản thân, và thông qua đó định hướng nghề nghiệp.
+        Nhưng với những ai trong ngành tâm lý học, nhất là tâm lý học tính cách thì hẳn biết MBTI không được coi là có tính khoa học, độ tin cậy cao và không được dùng nhiều trong nghiên cứu để đánh giá tính cách con người.
+        Thay vào đó, các nhà khoa học tin dùng mô hình năm yếu tố, được biết dưới các tên gọi khác như thang tính cách Big Five, Five Factor Model, Big Five personality traits…
+    </p>
+
+    <p>
+        <strong>
+            Vậy mô hình này là gì?
+        </strong>
+    </p>
+
+    <p>
+        Các nhà khoa học tin rằng ai cũng có năm yếu tố tính cách của mô hình này, đó chính là : hướng ngoại (extraversion), tận tâm (conscientiousness), dễ chịu (agreeableness), sẵn sàng trải nghiệm (openness to experience) và neuroticism (tâm lý bất ổn).
+        Tuy nhiên, khác với MBTI, mô hình này không dán nhãn loại tính cách của bạn (ví dụ phân loại bạn là INTJ hay INTP…) mà là kiểm tra xem bạn có bao nhiêu phần trăm, bao nhiêu điểm cho từng mặt tính cách trong năm tính cách này.
+        Nói một cách dễ hiểu thì hãy tưởng tượng mặt hướng ngoại là một cây thước đo.
+        Một đầu là hướng ngoại, một đầu là hướng nội và bạn có thể nằm giữa, có thể thiên về hướng nội, có thể thiên về hướng ngoại…trên cây thước ấy.
+    </p>
+
+    <p>
+        <strong>
+            Cách làm bài kiểm tra.
+        </strong>
+    </p>
+    <div>
+        Đối với bài kiểm tra ví dụ này thì các bạn chấm theo thang điểm từ 1-5.
+        <ul>
+            <li>Tuyệt đối không chính xác</li>
+            <li>Không chính xác</li>
+            <li>Trung lập</li>
+            <li>Đồng ý</li>
+            <li>Rất đồng ý</li>
+        </ul>
+    </div>
+    <a asp-action="Make" asp-controller="BigFive" class="btn btn-success">Làm trắc nghiệm</a>
+</div>

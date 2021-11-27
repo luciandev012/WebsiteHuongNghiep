@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Application.ViewModels.BigFiveVM>
+
+@{
+    ViewData["Title"] = "Make";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Let's go!</h1>
+
+    <form method="post" asp-action="Make">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <p>@item.Index. @item.Question <input value="@item.ResultId" name="ResultId" class="hidden"/></p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" asp-for="@item.Score" name="Score" value="" style="width:40px" />
+                </div>
+            </div>
+        }
+
+
+        <button type="submit" class="btn btn-success">Xem kết quả</button>
+    </form>
+   
+</div>

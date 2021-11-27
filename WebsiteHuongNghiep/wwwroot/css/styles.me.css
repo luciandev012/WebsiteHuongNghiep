@@ -11750,3 +11750,9 @@ header.masthead h1, header.masthead .h1 {
 .mbti-question input{
     width: 40px;
 }
+.big-five{
+    padding-top: 50px!important;
+}
+.big-five h1{
+    text-align: center;
+}

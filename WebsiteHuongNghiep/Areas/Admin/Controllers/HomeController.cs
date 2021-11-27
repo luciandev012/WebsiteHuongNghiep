@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services;
+using WebsiteHuongNghiep.Application.Services.BigFive;
 using WebsiteHuongNghiep.Application.Services.MBTI;
 using WebsiteHuongNghiep.Controllers;
 
@@ -14,10 +15,13 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
     {
         private readonly IManageHLTrackerServices _manageHLTrackerServices;
         private readonly IManageMbtiTrackerServices _manageMbtiTrackerServices;
-        public HomeController(IManageHLTrackerServices manageHLTrackerServices, IManageMbtiTrackerServices manageMbtiTrackerServices)
+        private readonly IManageBFTracker _manageBFTracker;
+        public HomeController(IManageHLTrackerServices manageHLTrackerServices, IManageMbtiTrackerServices manageMbtiTrackerServices,
+            IManageBFTracker manageBFTracker)
         {
             _manageMbtiTrackerServices = manageMbtiTrackerServices;
             _manageHLTrackerServices = manageHLTrackerServices;
+            _manageBFTracker = manageBFTracker;
         }
 
         public async Task<IActionResult> Index()
@@ -26,6 +30,8 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             ViewBag.HollandUserCount = await _manageHLTrackerServices.CountUser();
             ViewBag.MbtiCount = await _manageMbtiTrackerServices.CountTracker();
             ViewBag.MbtiUserCount = await _manageMbtiTrackerServices.CountUser();
+            ViewBag.BFCount = await _manageBFTracker.CountTracker();
+            ViewBag.BFUserCount = await _manageBFTracker.CountUser();
             return View();
         }
         public async Task<IActionResult> Holland()
@@ -38,6 +44,11 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
         {
             var mbtis = await _manageMbtiTrackerServices.GetAll();
             return View(mbtis);
+        }
+        public async Task<IActionResult> BigFive()
+        {
+            var b5s = await _manageBFTracker.GetAll();
+            return View(b5s);
         }
     }
 }
