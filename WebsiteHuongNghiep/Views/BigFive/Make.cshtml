@@ -13,7 +13,22 @@
         var main = document.getElementById("main-content");
         main.style.backgroundImage = "none";
         main.style.backgroundColor = "#9effed";
+        function validateForm() {
+            let x = document.getElementsByName("Score");
+            for (let i = 0; i < x.length; i++) {
+                if (isNaN(parseInt(x[i].value))) {
+                    alert("Bạn phải nhập số điểm từ 1-5");
+                    return false;
+                }
+                let int = parseInt(x[i].value);
+                if (int < 1 || int > 5) {
+                    alert("Bạn phải nhập số điểm từ 1-5");
+                    return false;
+                }
 
+            }
+            return true;
+        }
     </script>
 
 }
@@ -21,7 +36,7 @@
 <div class="container big-five">
     <h1>Let's go!</h1>
 
-    <form method="post" asp-action="Make">
+    <form method="post" asp-action="Make" name="myForm" onsubmit="return validateForm()">
         @foreach (var item in Model)
         {
             <div class="row">
