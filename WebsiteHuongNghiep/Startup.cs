@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Common;
 using WebsiteHuongNghiep.Application.Services;
+using WebsiteHuongNghiep.Application.Services.BigFive;
 using WebsiteHuongNghiep.Application.Services.BlogService;
 using WebsiteHuongNghiep.Application.Services.MBTI;
 using WebsiteHuongNghiep.Application.Services.System;
@@ -56,6 +57,8 @@ namespace WebsiteHuongNghiep
             services.AddTransient<IManageMbtiTableServices, ManageMbtiTableServices>();
             services.AddTransient<IManageMbtiResultServices, ManageMbtiResultServices>();
             services.AddTransient<IManageMbtiTrackerServices, ManageMbtiTrackerService>();
+            services.AddTransient<IManageBFResult, ManageBFResult>();
+            services.AddTransient<IManageBFQuestion, ManageBFQuestion>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }
