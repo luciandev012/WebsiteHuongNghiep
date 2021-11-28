@@ -1,0 +1,17 @@
+﻿@model WebsiteHuongNghiep.Data.Entities.EnnegramResult
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+        main.style.minHeight = "unset";
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Kết quả của bạn</h1>
+    @Html.Raw(Model.Content)
+</div>

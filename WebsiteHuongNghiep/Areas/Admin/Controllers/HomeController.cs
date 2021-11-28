@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services;
 using WebsiteHuongNghiep.Application.Services.BigFive;
+using WebsiteHuongNghiep.Application.Services.Ennegram;
 using WebsiteHuongNghiep.Application.Services.MBTI;
 using WebsiteHuongNghiep.Controllers;
 
@@ -16,12 +17,14 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
         private readonly IManageHLTrackerServices _manageHLTrackerServices;
         private readonly IManageMbtiTrackerServices _manageMbtiTrackerServices;
         private readonly IManageBFTracker _manageBFTracker;
+        private readonly IManageEGTracker _manageEGTracker;
         public HomeController(IManageHLTrackerServices manageHLTrackerServices, IManageMbtiTrackerServices manageMbtiTrackerServices,
-            IManageBFTracker manageBFTracker)
+            IManageBFTracker manageBFTracker, IManageEGTracker manageEGTracker)
         {
             _manageMbtiTrackerServices = manageMbtiTrackerServices;
             _manageHLTrackerServices = manageHLTrackerServices;
             _manageBFTracker = manageBFTracker;
+            _manageEGTracker = manageEGTracker;
         }
 
         public async Task<IActionResult> Index()
@@ -32,6 +35,8 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             ViewBag.MbtiUserCount = await _manageMbtiTrackerServices.CountUser();
             ViewBag.BFCount = await _manageBFTracker.CountTracker();
             ViewBag.BFUserCount = await _manageBFTracker.CountUser();
+            ViewBag.EGCount = await _manageEGTracker.CountTracker();
+            ViewBag.EGUserCount = await _manageEGTracker.CountUser();
             return View();
         }
         public async Task<IActionResult> Holland()
@@ -49,6 +54,11 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
         {
             var b5s = await _manageBFTracker.GetAll();
             return View(b5s);
+        }
+        public async Task<IActionResult> Ennegram()
+        {
+            var egs = await _manageEGTracker.GetAll();
+            return View(egs);
         }
     }
 }

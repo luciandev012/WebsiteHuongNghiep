@@ -11756,3 +11756,6 @@ header.masthead h1, header.masthead .h1 {
 .big-five h1{
     text-align: center;
 }
+.big-five p{
+    margin: 8px 0!important;
+}

@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Let's go!</h1>
+    <p><span style="font-style:italic">Đầu tiên</span>, hãy chọn một mô tả giống bạn nhất. <strong>A</strong>, <strong>B</strong> hay <strong>C</strong>:</p>
+    <ul>
+        <li>
+            <strong>A</strong> – Tôi có vẻ khá độc lập và quyết đoán.
+            Tôi cảm thấy rằng mọi thứ diễn ra tốt nhất khi tôi lao vào làm.
+            Tôi đặt ra các mục tiêu, tập trung tâm trí và mong muốn thực hiện công việc. Tôi không thích ngồi 1 chỗ, tôi muốn đạt được cái gì đó lớn lao và có sức ảnh hưởng.
+            Tôi không hẳn là muốn đối đầu nhưng tôi cũng không để người khác chỉ đạo tôi. Gần như tôi lúc nào cũng biết tôi muốn gì và bắt tay vào thực hiện nó. Tôi có xu hướng “work hard, play hard”.
+        </li>
+        <li>
+            <strong>B</strong> – Tôi có vẻ ít nói và thường ở một mình.
+            Tôi thường không muốn có nhiều sự chú ý vào mình. Tôi không cảm thấy thoải mái khi đứng đầu hay ganh đua như những người khác.
+            Sự sôi động của tôi chủ yếu nằm trong trí tưởng tượng, có thể nói tôi giống người đang mơ. Tôi có thể cảm thấy hài lòng mà không cảm thấy mình cần năng động trong mọi tình huống.
+        </li>
+        <li>
+            <strong>C</strong> – Tôi có vẻ có trách nhiệm và tận tâm.
+            Tôi cảm thấy rất tệ nếu tôi không thể giữ lời hứa và không thể làm cái người ta mong đợi ở tôi.
+            Tôi muốn mọi người biết rằng tôi ở đây vì họ và tôi sẽ làm những gì tôi tin là tốt nhất cho họ. Tôi hay hi sinh bản thân rất nhiều vì người khác, dù cho họ có để tâm đến hay không.
+            Tôi thường không chăm sóc mình đúng mức, tôi hoàn thành những việc cần làm và nghỉ ngơi nếu còn thời gian.
+        </li>
+    </ul>
+    <p><span style="font-style:italic">Tiếp theo</span>, hãy chọn một mô tả giống bạn nhất. <strong>X</strong>, <strong>Y</strong> hay <strong>Z</strong>:</p>
+    <ul>
+        <li>
+            <strong>X</strong> – Tôi thường duy trì trạng thái tích cực và tin rằng mọi thứ rồi sẽ diễn ra tốt đẹp. 
+            Có nhiều thứ làm tôi say mê và bận rộn cả ngày. 
+            Tôi thích ở cùng và giúp mọi người vui vẻ, tôi thích chia sẻ niềm vui và năng lượng của mình với người khác (không phải lúc nào tôi cũng có tâm trạng tốt nhưng tôi luôn tỏ ra như vậy). 
+            Tuy vậy, việc cố gắng duy trì trạng thái tích cực làm tôi trì hoãn đương đầu với vấn đề của bản thân trong thời gian dài.
+        </li>
+        <li>
+            <strong>Y</strong> – Tôi thường có cảm xúc rõ ràng về mọi thứ, mọi người có thể dễ dàng nhận thấy tôi không vui vì cái gì. Tôi có thể cảnh giác với người khác, nhưng tôi nhạy cảm hơn là tôi làm ra vẻ. Tôi muốn biết tôi đang ở đâu trong mối quan hệ với người khác và tôi có thể trông cậy vào đâu; mọi người thường cảm thấy rõ quan hệ của họ với tôi như thế nào. Khi tôi buồn bực về một cái gì đó, tôi muốn người khác cũng có cảm giác giống tôi. Tôi biết rõ quy tắc nhưng tôi không muốn người khác phải bảo tôi phải làm gì. Tôi muốn tự quyết định cho chính mình.
+        </li>
+        <li>
+            <strong>Z</strong> – Tôi có xu hướng tự chủ và logic hóa mọi thứ. Tôi cảm thấy không thoải mái khi xử lý tình cảm, cảm xúc. Tôi rất có năng lực và thích tự làm việc một mình. Khi có vấn đề xung đột cá nhân, tôi cố không để cảm xúc của mình xen vào. Tôi có thể bị cho rằng là lạnh lùng, tách rời nhưng tôi không muốn biểu lộ cảm xúc để mà che đi những thứ thực sự quan trọng với tôi. Tôi thường không thể hiện phản ứng khi người khác tác động vào tôi.
+        </li>
+    </ul>
+    <p>Bây giờ, hãy ghép 2 chữ cái bạn có với nhau rồi chọn xem mình thuộc nhóm nào nhé</p>
+    <form asp-controller="Ennegram" asp-action="Make" method="post">
+
+        <div class="row">
+            <div class="col-md-1">
+                <input type="radio" id="ax" name="resultCode" value="ax" />
+                <label>AX</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="ay" name="resultCode" value="ay" />
+                <label>AY</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="az" name="resultCode" value="az" />
+                <label>AZ</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="bx" name="resultCode" value="bx" />
+                <label>BX</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="by" name="resultCode" value="by" />
+                <label>BY</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="bz" name="resultCode" value="bz" />
+                <label>BZ</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="cx" name="resultCode" value="cx" />
+                <label>CX</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="cy" name="resultCode" value="cy" />
+                <label>CY</label>
+            </div>
+            <div class="col-md-1">
+                <input type="radio" id="cz" name="resultCode" value="cz" />
+                <label>CZ</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Xem kết quả</button>
+    </form>
+</div>

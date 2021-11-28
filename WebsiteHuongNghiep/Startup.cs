@@ -14,6 +14,7 @@ using WebsiteHuongNghiep.Application.Common;
 using WebsiteHuongNghiep.Application.Services;
 using WebsiteHuongNghiep.Application.Services.BigFive;
 using WebsiteHuongNghiep.Application.Services.BlogService;
+using WebsiteHuongNghiep.Application.Services.Ennegram;
 using WebsiteHuongNghiep.Application.Services.MBTI;
 using WebsiteHuongNghiep.Application.Services.System;
 using WebsiteHuongNghiep.Data.EF;
@@ -60,6 +61,8 @@ namespace WebsiteHuongNghiep
             services.AddTransient<IManageBFResult, ManageBFResult>();
             services.AddTransient<IManageBFQuestion, ManageBFQuestion>();
             services.AddTransient<IManageBFTracker, ManageBFTracker>();
+            services.AddTransient<IManageEnnegramResult, MangeEnnegramResult>();
+            services.AddTransient<IManageEGTracker, ManageEGTracker>();
             //services.AddTransient<RoleManager<Role>, RoleManager<Role>>();
 
         }

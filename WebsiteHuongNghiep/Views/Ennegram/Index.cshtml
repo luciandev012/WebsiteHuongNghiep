@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Trắc nghiệm tính cách Ennegram là gì?</h1>
+    <p>ENNEAGRAM là một bộ môn nghiên cứu cổ xưa có nguồn gốc từ Hy Lạp. 
+    “Ennea” là số 9 và “Gram” nghĩa là đồ thị, hệ thống Enneagram mô tả sâu sắc về 9 nhóm tính cách ở con người. 
+    Mang nhiều ưu điểm vượt trội, Enneagram là hệ thống thực hành phát triển trí tuệ xúc cảm thích hợp cho từng cá nhân “thấu hiểu bản thân” và được ứng dụng rất nhiều trong quản trị, hợp tác, đàm phán, bán hàng…</p>
+    <p>
+        Enneagram có nguồn gốc và cách hoạt động phức tạp nhưng trắc nghiệm 9 loại tính cách được thiết kế khá gần gũi và dễ tiếp cận. 
+        Hãy cùng khám phá xem mình thuộc nhóm tính cách nào, đồng thời kiểm nghiệm độ chính xác xem sao nhé!!
+    </p>
+    <a asp-action="Make" asp-controller="Ennegram" class="btn btn-secondary">Làm trắc nghiệm!</a>
+</div>

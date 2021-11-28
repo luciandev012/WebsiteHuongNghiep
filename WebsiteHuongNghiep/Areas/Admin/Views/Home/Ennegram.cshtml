@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Application.ViewModels.TrackerVM>
+
+@{
+    ViewData["Title"] = "Ennegram";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ennegram</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TimeStamp)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FinalResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

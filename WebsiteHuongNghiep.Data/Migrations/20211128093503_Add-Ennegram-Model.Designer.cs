@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebsiteHuongNghiep.Data.EF;
 
 namespace WebsiteHuongNghiep.Data.Migrations
 {
     [DbContext(typeof(VocationalGuidanceDbContext))]
-    partial class VocationalGuidanceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211128093503_Add-Ennegram-Model")]
+    partial class AddEnnegramModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

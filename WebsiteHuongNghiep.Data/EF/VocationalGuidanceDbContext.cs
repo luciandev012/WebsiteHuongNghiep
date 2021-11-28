@@ -30,6 +30,8 @@ namespace WebsiteHuongNghiep.Data.EF
         public DbSet<BigFiveResult> BigFiveResults { get; set; }
         public DbSet<BigFiveQuestion> BigFiveQuestions { get; set; }
         public DbSet<BigFiveTracker> BigFiveTrackers { get; set; }
+        public DbSet<EnnegramResult> EnnegramResults { get; set; }
+        public DbSet<EnnegramTracker> EnnegramTrackers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -124,6 +126,13 @@ namespace WebsiteHuongNghiep.Data.EF
             //
             modelBuilder.Entity<BigFiveTracker>().ToTable("BigFiveTrackers").HasKey(e => e.Id);
             modelBuilder.Entity<BigFiveTracker>().HasOne(bft => bft.User).WithMany(u => u.BigFiveTrackers).HasForeignKey(bft => bft.UserId);
+
+            //
+            modelBuilder.Entity<EnnegramResult>().ToTable("EnnegramResults").HasKey(e => e.Id);
+
+            //
+            modelBuilder.Entity<EnnegramTracker>().ToTable("EnnegramTrackers").HasKey(e => e.Id);
+            modelBuilder.Entity<EnnegramTracker>().HasOne(et => et.User).WithMany(u => u.EnnegramTrackers).HasForeignKey(et => et.UserId);
 
             //
             modelBuilder.Entity<Role>().ToTable("Roles");

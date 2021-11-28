@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Services.BigFive;
+using WebsiteHuongNghiep.Controllers;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class BigFiveQuestionController : Controller
+    public class BigFiveQuestionController : BaseController
     {
         private readonly IManageBFQuestion _manageBFQuestion;
         private readonly IManageBFResult _manageBFResult;
