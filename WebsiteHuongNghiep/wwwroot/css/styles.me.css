@@ -11613,13 +11613,13 @@ header.masthead h1, header.masthead .h1 {
 .holland-left a{
   margin-right: 20px;
 }
-.mbti-left{
-  background-image: url(../assets/img/base64-1623060351823813615710.png);
-  background-repeat: no-repeat;
-  background-position: left 80px center;
-  height: 500px;
-  background-size: 50vw auto;
-  background-color: #fff;
+.mbti-left {
+    background-image: url(../assets/img/ab56d8cd27efecb1b5fe.jpg);
+    background-repeat: no-repeat;
+    background-position: left 80px center;
+    height: 500px;
+    background-size: 50vw auto;
+    background-color: #fff;
 }
 .mbti-right{
   padding-top: 100px;
@@ -11636,13 +11636,13 @@ header.masthead h1, header.masthead .h1 {
   margin-bottom: 30px;
   font-weight: bolder;
 }
-.bigfive-left{
-  background-image: url(../assets/img/feature-bigfive.jpg);
-  background-repeat: no-repeat;
-  background-position: left 80px center;
-  height: 500px;
-  background-size: 50vw auto;
-  background-color: #bafab4;
+.bigfive-left {
+    background-image: url(../assets/img/bigfive.png);
+    background-repeat: no-repeat;
+    background-position: left 80px center;
+    height: 500px;
+    background-size: 50vw auto;
+    background-color: #dff59d;
 }
 .hidden {
     display: none;
@@ -11691,7 +11691,7 @@ header.masthead h1, header.masthead .h1 {
     text-align: center
 }
 .main-content {
-    background-image: url(../assets/img/pngtree-taobao-vector-cartoon-neat-study-desk-table-home-illustration-table-lamp-image_130341.jpg);
+    background-image: url(../assets/img/bg-image.jpg);
     background-size: cover;
     background-repeat: repeat-y;
     
@@ -11758,4 +11758,17 @@ header.masthead h1, header.masthead .h1 {
 }
 .big-five p{
     margin: 8px 0!important;
+}
+.blog-item a {
+    font-weight: bold;
+    font-size: 20px;
+    color: #161e06;
+    text-transform: uppercase;
+}
+.blog-item p {
+    font-weight: bold;
+    font-size: 18px;
+}
+.table{
+    border:1px solid #000;
 }

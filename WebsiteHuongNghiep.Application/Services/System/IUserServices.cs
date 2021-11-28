@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Request;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Application.Services.System
@@ -18,5 +19,6 @@ namespace WebsiteHuongNghiep.Application.Services.System
         Task<int> Delete(Guid userId);
         Task<bool> ForgotPassword(RegisterRequest request);
         Task<User> GetUserById(string id);
+        Task<List<TrackerVM>> GetTrackerByUserId(Guid userId);
     }
 }

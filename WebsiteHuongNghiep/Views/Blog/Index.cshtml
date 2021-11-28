@@ -6,15 +6,7 @@
     
 }
 
-@section Scripts{ 
-    <script>
-        var main = document.getElementById("main-content");
-        main.style.backgroundImage = "none";
-        main.style.backgroundColor = "aqua";
-        main.style.minHeight = "unset";
-    </script>
-    
-}
+
 
 <div class="container-fluid upper">
     
@@ -33,7 +25,7 @@
     <div class="row" style="height: 700px;">
         @foreach (var item in Model.Items)
         {
-            <div class="col-md-3 blog-item">
+            <div class="col-md-4 blog-item text-center">
                 <a asp-action="Detail" asp-controller="Blog" asp-route-metaTitle="@item.MetaTitle"><img src="~/user-content/@item.Image" alt="img" /></a>
 
                 <a asp-action="Detail" asp-controller="Blog" asp-route-metaTitle="@item.MetaTitle"><p>@item.Title</p></a>

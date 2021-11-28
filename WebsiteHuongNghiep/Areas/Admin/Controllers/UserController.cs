@@ -75,6 +75,16 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             var user = await _userServices.GetUserById(id);
             return View(user);
         }
-
+        public async Task<IActionResult> History(string id)
+        {
+            var result = await _userServices.GetTrackerByUserId(new Guid(id));
+            int index = 1;
+            foreach(var item in result)
+            {
+                item.Index = index;
+                index++;
+            }    
+            return View(result);
+        }
     }
 }

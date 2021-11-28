@@ -40,9 +40,9 @@ namespace WebsiteHuongNghiep.Application.Services.BigFive
 
         public async Task<List<TrackerVM>> GetAll()
         {
-            var mbtis = await _context.BigFiveTrackers.ToListAsync();
+            var b5s = await _context.BigFiveTrackers.ToListAsync();
             var trackers = new List<TrackerVM>();
-            foreach (var item in mbtis)
+            foreach (var item in b5s)
             {
                 var tracker = new TrackerVM()
                 {

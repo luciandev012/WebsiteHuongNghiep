@@ -64,7 +64,7 @@
                 @Html.ActionLink("Sửa", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("Thông tin", "Details", new { id = item.Id} ) |
                 @Html.ActionLink("Xoá", "Delete", new { id=item.Id  })
-                <a class="btn btn-bg-success" asp-action="">Xem lịch sử làm trắc nghiệm</a>
+                <a class="btn btn-bg-success" asp-action="History" asp-route-id="@item.Id">Xem lịch sử làm trắc nghiệm</a>
             </td>
         </tr>
 }

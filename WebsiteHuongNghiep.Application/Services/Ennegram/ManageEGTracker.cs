@@ -40,9 +40,9 @@ namespace WebsiteHuongNghiep.Application.Services.Ennegram
 
         public async Task<List<TrackerVM>> GetAll()
         {
-            var mbtis = await _context.EnnegramTrackers.ToListAsync();
+            var egs = await _context.EnnegramTrackers.ToListAsync();
             var trackers = new List<TrackerVM>();
-            foreach (var item in mbtis)
+            foreach (var item in egs)
             {
                 var tracker = new TrackerVM()
                 {

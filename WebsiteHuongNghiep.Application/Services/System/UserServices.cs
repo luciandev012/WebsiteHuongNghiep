@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebsiteHuongNghiep.Application.Request;
+using WebsiteHuongNghiep.Application.ViewModels;
 using WebsiteHuongNghiep.Data.EF;
 using WebsiteHuongNghiep.Data.Entities;
 
@@ -127,6 +128,72 @@ namespace WebsiteHuongNghiep.Application.Services.System
             var user = await _userManager.FindByIdAsync(id);
             return user;
 
+        }
+
+        public async Task<List<TrackerVM>> GetTrackerByUserId(Guid userId)
+        {
+            var mbtis = await _context.MbtiTrackers.Where(x => x.UserId == userId).ToListAsync();
+            var trackers = new List<TrackerVM>();
+            foreach (var item in mbtis)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.FinalResult,
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                };
+                trackers.Add(tracker);
+            }
+
+            var egs = await _context.EnnegramTrackers.Where(x => x.UserId == userId).ToListAsync();
+           
+            foreach (var item in egs)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.Result.ToString(),
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                };
+                trackers.Add(tracker);
+            }
+
+            var b5s = await _context.BigFiveTrackers.Where(x => x.UserId == userId).ToListAsync();
+            
+            foreach (var item in b5s)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.ResultId.ToString(),
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                };
+                trackers.Add(tracker);
+            }
+
+            var hollands = await _context.HollandTrackers.Where(x => x.UserId == userId).ToListAsync();
+
+            
+            foreach (var item in hollands)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.FinalTable.ToString(),
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                };
+                trackers.Add(tracker);
+            }
+            
+            return trackers;
         }
     }
 }

@@ -58,5 +58,38 @@ namespace WebsiteHuongNghiep.Areas.Admin.Controllers
             }
             return View(request);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var result = await _manageHLMultipleChoice.GetById(id);
+            var hlTables = await _manageHLTable.GetAll();
+            ViewBag.Tables = hlTables.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.HLTableId.ToString(),
+            });
+            var hl = new HollandMultipleChoice()
+            {
+                Id = result.Id,
+                Question = result.Question
+
+            };
+            return View(hl);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(HollandMultipleChoice request)
+        {
+            var result = await _manageHLMultipleChoice.Update(request);
+            if(result > 0)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(request);
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _manageHLMultipleChoice.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

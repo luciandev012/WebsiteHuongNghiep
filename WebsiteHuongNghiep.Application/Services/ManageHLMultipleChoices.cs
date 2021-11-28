@@ -70,7 +70,7 @@ namespace WebsiteHuongNghiep.Application.Services
         {
             var hlMultipleChoice = await _context.HollandMultipleChoices.FindAsync(request.Id);
             hlMultipleChoice.Question = request.Question;
-            hlMultipleChoice.HLTableId = request.HLTableId;
+            //hlMultipleChoice.HLTableId = request.HLTableId;
             return await _context.SaveChangesAsync();
         }
         public async Task<List<MultipleChoicesVM>> GetByTable(int tableId)

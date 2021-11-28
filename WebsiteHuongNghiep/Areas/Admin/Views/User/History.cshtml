@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Application.ViewModels.TrackerVM>
+
+@{
+    ViewData["Title"] = "History";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>History</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Index)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeStamp)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.FinalResult)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Index)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalResult)
+            </td>
+           
+    
+        </tr>
+}
+    </tbody>
+</table>
