@@ -9,7 +9,7 @@ using WebsiteHuongNghiep.Data.Entities;
 
 namespace WebsiteHuongNghiep.Controllers
 {
-    public class EnnegramController : Controller
+    public class EnnegramController : BaseController
     {
         private readonly IManageEnnegramResult _manageEnnegramResult;
         private readonly IManageEGTracker _manageEGTracker;
