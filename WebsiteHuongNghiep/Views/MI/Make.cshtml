@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebsiteHuongNghiep.Data.Entities.MIQuestion>
+
+@{
+    ViewData["Title"] = "Make";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        main.style.backgroundImage = "none";
+        main.style.backgroundColor = "#9effed";
+        function validateForm() {
+            let x = document.getElementsByName("Score");
+            for (let i = 0; i < x.length; i++) {
+                if (isNaN(parseInt(x[i].value))) {
+                    alert("Bạn phải nhập số điểm từ 0-5");
+                    return false;
+                }
+                let int = parseInt(x[i].value);
+                if (int < 0 || int > 5) {
+                    alert("Bạn phải nhập số điểm từ 0-5");
+                    return false;
+                }
+
+            }
+            return true;
+        }
+    </script>
+
+}
+
+<div class="container big-five">
+    <h1>Let's go!</h1>
+
+    <h3>Hướng dẫn</h3>
+    <p>
+        Đọc từng câu mô tả dưới đây và đánh giá
+        điểm từ 0 đến 5 theo mức độ phù hợp của mô tả với bạn
+        0 = “Hoàn toàn không” đến 5 = “Rất chính xác”
+        Sau khi trả lời tất cả các câu hỏi, bạn mở ra phần gấp phía
+        tay phải và chuyển từng điểm đánh giá sang ô được tô
+        đậm cùng hàng. Cuối cùng, cộng tổng điểm trong mỗi cột
+        Điểm số cao nhất có thể trong mỗi cột là 15. Trí thông
+        minh nổi trội của bạn là gì?
+    </p>
+    <form method="post" asp-action="Make" name="myForm" onsubmit="return validateForm()">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <p>@item.Id. @item.Question <input value="@item.TableId" name="TableId" class="hidden" /></p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" name="Score" value="" style="width:40px" />
+                </div>
+            </div>
+        }
+
+
+        <button type="submit" class="btn btn-success">Xem kết quả</button>
+    </form>
+
+</div>

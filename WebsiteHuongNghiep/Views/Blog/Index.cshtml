@@ -13,14 +13,16 @@
 </div>
 <div class="container" style="padding: 20px;">
     <div class="row" id="search">
-        <div class="col-md-4">
-            <div class="input-group input-group-alternative input-group-merge">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+        <form asp-action="Index" method="get">
+            <div class="col-md-4">
+                <div class="input-group input-group-alternative input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Search" value="@ViewBag.Keyword" type="text" name="keyword">
                 </div>
-                <input class="form-control" placeholder="Search" value="@ViewBag.Keyword" type="text" name="keyword">
             </div>
-        </div>
+        </form>
     </div>
     <div class="row" style="height: 700px;">
         @foreach (var item in Model.Items)

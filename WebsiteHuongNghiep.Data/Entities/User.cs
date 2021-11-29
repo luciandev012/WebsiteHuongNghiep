@@ -16,5 +16,6 @@ namespace WebsiteHuongNghiep.Data.Entities
         public List<MbtiTracker> MbtiTrackers { get; set; }
         public List<BigFiveTracker> BigFiveTrackers { get; set; }
         public List<EnnegramTracker> EnnegramTrackers { get; set; }
+        public List<MITracker> MITrackers { get; set; }
     }
 }

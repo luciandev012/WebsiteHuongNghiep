@@ -122,7 +122,7 @@ namespace WebsiteHuongNghiep.Application.Services.BlogService
             }
             var blogs = await _context.Blogs.Where(x => x.Name.Contains(keyword)).ToListAsync();
             int totalRow = blogs.Count;
-            blogs = blogs.Skip((pageIndex - 1) * 2).Take(2).ToList();
+            blogs = blogs.Skip((pageIndex - 1) * 6).Take(6).ToList();
 
             var blogVMs = new List<BlogVM>();
             foreach (var item in blogs)
