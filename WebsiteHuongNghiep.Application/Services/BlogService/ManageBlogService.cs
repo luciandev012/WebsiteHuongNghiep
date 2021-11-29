@@ -34,9 +34,17 @@ namespace WebsiteHuongNghiep.Application.Services.BlogService
                 Content = request.Content,
                 CreatedAt = DateTime.Now,
                 CreatedBy = userId,
-                ViewCount = 0,
-                Image = await SaveFile(request.Image)
+                ViewCount = 0
+                
             };
+            if (request.Image != null)
+            {
+                blog.Image = await SaveFile(request.Image);
+            }
+            else
+            {
+                blog.Image = "";
+            }    
             await _context.AddAsync(blog);
             return await _context.SaveChangesAsync();
         }
@@ -83,7 +91,10 @@ namespace WebsiteHuongNghiep.Application.Services.BlogService
             blog.ModifyDate = DateTime.Now;
             blog.ModifyBy = userId;
             blog.CategoryId = request.CategoryId;
-            //blog.Image = await SaveFile(request.Image);
+            if(request.Image != null)
+            {
+                blog.Image = await SaveFile(request.Image);
+            }
             return await _context.SaveChangesAsync();
         }
 
@@ -150,7 +161,7 @@ namespace WebsiteHuongNghiep.Application.Services.BlogService
             {
                 Items = blogVMs,
                 PageIndex = pageIndex,
-                PageSize = 2,
+                PageSize = 6,
                 TotalRecord = totalRow
             };
             return pagedResult;

@@ -1,15 +1,23 @@
 ﻿@using WebsiteHuongNghiep.Application.Common
 @model PagedResult<WebsiteHuongNghiep.Application.ViewModels.BlogVM>
 
-@{ 
+@{
     ViewData["Title"] = "Blog";
-    
+
 }
 
 
+@section Scripts{
+    <script>
+        var main = document.getElementById("main-content");
+        //main.style.backgroundImage = "none";
+        //main.style.backgroundColor = "aqua";
+        main.style.minHeight = "unset";
+    </script>
 
+}
 <div class="container-fluid upper">
-    
+
 </div>
 <div class="container" style="padding: 20px;">
     <div class="row" id="search">
