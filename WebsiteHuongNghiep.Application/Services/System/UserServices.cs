@@ -143,6 +143,7 @@ namespace WebsiteHuongNghiep.Application.Services.System
                     TimeStamp = item.TimeStamp,
                     Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
                                 + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                    MultipleChoice = "MBTI"
                 };
                 trackers.Add(tracker);
             }
@@ -158,6 +159,7 @@ namespace WebsiteHuongNghiep.Application.Services.System
                     TimeStamp = item.TimeStamp,
                     Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
                                 + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                    MultipleChoice = "Ennegram"
                 };
                 trackers.Add(tracker);
             }
@@ -173,13 +175,13 @@ namespace WebsiteHuongNghiep.Application.Services.System
                     TimeStamp = item.TimeStamp,
                     Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
                                 + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                    MultipleChoice = "Big Five"
                 };
                 trackers.Add(tracker);
             }
 
             var hollands = await _context.HollandTrackers.Where(x => x.UserId == userId).ToListAsync();
 
-            
             foreach (var item in hollands)
             {
                 var tracker = new TrackerVM()
@@ -189,10 +191,27 @@ namespace WebsiteHuongNghiep.Application.Services.System
                     TimeStamp = item.TimeStamp,
                     Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
                                 + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                    MultipleChoice = "Holland"
                 };
                 trackers.Add(tracker);
             }
-            
+
+            var mis = await _context.MITrackers.Where(x => x.UserId == userId).ToListAsync();
+
+            foreach (var item in mis)
+            {
+                var tracker = new TrackerVM()
+                {
+                    Id = item.Id,
+                    FinalResult = item.Result.ToString(),
+                    TimeStamp = item.TimeStamp,
+                    Username = (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).FirstName + " "
+                                + (await _context.Users.Where(x => x.Id == item.UserId).FirstOrDefaultAsync()).LastName,
+                    MultipleChoice = "MI"
+                };
+                trackers.Add(tracker);
+            }
+
             return trackers;
         }
     }

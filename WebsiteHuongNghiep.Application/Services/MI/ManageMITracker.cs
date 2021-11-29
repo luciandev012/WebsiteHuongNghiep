@@ -22,7 +22,7 @@ namespace WebsiteHuongNghiep.Application.Services.MI
             return await _context.MITrackers.CountAsync();
         }
 
-        public async Task<int> CountTrackerByResult(int resultId)
+        public async Task<int> CountTrackerByResult(string resultId)
         {
             return await _context.MITrackers.Where(x => x.Result == resultId.ToString()).CountAsync();
         }

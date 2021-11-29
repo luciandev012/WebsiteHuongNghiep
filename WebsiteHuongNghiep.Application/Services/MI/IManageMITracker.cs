@@ -13,7 +13,7 @@ namespace WebsiteHuongNghiep.Application.Services.MI
         Task<int> Create(MITracker tracker);
         Task<int> CountTracker();
         Task<List<MITracker>> GetTrackerByUserId(Guid userId);
-        Task<int> CountTrackerByResult(int resultId);
+        Task<int> CountTrackerByResult(string resultId);
         Task<int> CountUser();
         Task<List<TrackerVM>> GetAll();
     }
