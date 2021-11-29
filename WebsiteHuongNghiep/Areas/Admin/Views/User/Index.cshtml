@@ -8,65 +8,61 @@
 <h1>Danh sách người dùng</h1>
 
 <form asp-action="Index" method="get">
-    <div class="row">
-        <div class="col-md-2">
-            <a asp-action="Create" class="btn btn-success mg-20">Thêm mới</a>
 
-        </div>
-       
-        <div class="col-md-4">
-            <input type="text" placeholder="Tìm kiếm theo số điện thoại" name="PhoneNumber" value="@ViewBag.PhoneNumber" class="form-control" />
-        </div>
+    <div class="d-flex align-items-center flex-wrap">
+        <a asp-action="Create" class="btn btn-success me-3">Thêm mới</a>
+        <input type="text" placeholder="Tìm kiếm theo số điện thoại" name="PhoneNumber" value="@ViewBag.PhoneNumber" class="form-control w-50" />
     </div>
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
+<table class="table table-bordered table-striped mt-3">
+    <thead class="bg-primary">
+        <tr class="text-white">
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-           
+
             <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UserName)
             </th>
-            
-           
-            
+
+
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
 
-                 
-            <td>
-                @Html.ActionLink("Sửa", "Edit", new {  id=item.Id  }) |
-                @Html.ActionLink("Thông tin", "Details", new { id = item.Id} ) |
-                @Html.ActionLink("Xoá", "Delete", new { id=item.Id  })
-                <a class="btn btn-bg-success" asp-action="History" asp-route-id="@item.Id">Xem lịch sử làm trắc nghiệm</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.Id })" class="py-1 px-2 rounded-4 bg-primary text-white text-decoration-none me-2">Sửa</a> |
+                    <a href="@Url.Action("Thông tin", "Details", new { id = item.Id })" class="py-1 px-2 rounded-4 bg-warning text-dark text-decoration-none me-2">Thông tin</a> |
+                    <a href="@Url.Action("Xoá", "Delete", new { id = item.Id })" class="py-1 px-2 rounded-4 bg-danger text-white text-decoration-none">Xoá</a> |
+                    <a class="btn btn-bg-success" asp-action="">Xem lịch sử làm trắc nghiệm</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
